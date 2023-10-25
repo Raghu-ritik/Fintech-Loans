@@ -1,0 +1,1 @@
+SERVER_API_KEY = "Dw22gXnwgq3mAg8z5bqA02jJ2fuD9E0r6ulP2iGA"
