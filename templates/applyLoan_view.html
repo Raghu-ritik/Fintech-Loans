@@ -31,7 +31,7 @@
               <div class="form-group mt-3">
                 <label for="ReasonForLoan">Reason for your loan</label>
                 <select class="form-select" aria-label="Default select example" id="ReasonForLoan" name="ReasonforLoan">
-                  <option selected>Car Expenses</option>
+                  <option value="0" selected>Car Expenses</option>
                   <option value="1">Insurance</option>
                   <option value="2">Medical</option>
                   <option value="3">Product Purchase</option>
@@ -201,7 +201,7 @@
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="workEmail">Email</label>
-                <input type="text" class="form-control" id="workEmail" placeholder="Enter Work Email" name="workEmail">
+                <input type="email" class="form-control" id="workEmail" placeholder="Enter Email" name="workEmail">
               </div>
             </div>
           </div>
@@ -260,9 +260,6 @@
                   <input type="number" class="form-control" id="Annual_Gross_Income"
                     placeholder="Annual gross income (before tax) from all sources"
                     aria-label="Amount (to the nearest dollar)" name="Annual_Gross_Income">
-                  <div class="input-group-append">
-                    <span class="input-group-text amount-text2">00</span>
-                  </div>
                 </div>
               </div>
 
@@ -292,9 +289,6 @@
                   <input type="number" class="form-control" id="Total_expenses"
                     placeholder="Total Expenses (before tax) for all sources"
                     aria-label="Amount (to the nearest dollar)" name="Total_expenses">
-                  <div class="input-group-append">
-                    <span class="input-group-text amount-text2">00</span>
-                  </div>
                 </div>
               </div>
 

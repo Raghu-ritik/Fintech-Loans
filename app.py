@@ -76,15 +76,15 @@ def calculateRepayentAmout(LoanAmout,pay_frequency):
     if LoanAmout == 500:
         return LoanAmout + (14*multiplication_ratio)  
     elif LoanAmout == 1000:
-        return LoanAmout + (20 * multiplication_ratio)     
+        return LoanAmout + (22 * multiplication_ratio)     
     elif LoanAmout == 1500:
-        return LoanAmout + (35 * multiplication_ratio)     
+        return LoanAmout + (36 * multiplication_ratio)     
     elif LoanAmout == 2000:
         return LoanAmout + (55 * multiplication_ratio)
     elif LoanAmout == 2500:
         return LoanAmout + (60 * multiplication_ratio)
     elif LoanAmout == 3000:
-        return LoanAmout + (66 * multiplication_ratio)
+        return LoanAmout + (64 * multiplication_ratio)
     elif LoanAmout == 3500:
         return LoanAmout + (75 * multiplication_ratio)
     elif LoanAmout == 4000:
@@ -107,18 +107,48 @@ def make_request(method, url, headers=None, payload=None):
             "Error Message":"could not able to convert response into json" 
         }
 
+def pay_frequency_convert(pay_frequency):
+    if pay_frequency==1:
+        return "Weekly".upper()
+    elif pay_frequency == 2:
+        return "Fortnightly".upper()
+    elif pay_frequency == 3:
+        return "Monthly".upper()
+    elif pay_frequency == 4:
+        return "Other".upper()
+
+def Loan_reason_convert(Loan_reason):
+    if Loan_reason==0:
+        return "Car Expenses"
+    elif Loan_reason == 1:
+        return "Insurance"
+    elif Loan_reason == 2:
+        return "Medical"
+    elif Loan_reason == 3:
+        return "Product Purchase"
+
+
+def make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expenses,total_repayment_amount__c):
+    filename = f"static/Credit_sense_data/Loan_5000.csv"
+    df = pd.read_csv(filename)
+    df = df[(df["Loan_Amount__c"]==Loan_Amount) & (df["DP_Primary_income_frequency__c"]==pay_frequency) & (df["Total_Repayment_Amount__c"] >= total_repayment_amount__c ) ]
+
+    # rslt_df = dataframe[dataframe['Percentage'] &gt; 80]
+
+    print("This is sorted DF",df )
+    return df.to_json()
+
+
+
 
 @app.route('/analyzeLoan', methods=['POST'])
-# @app.route('/post-using-form', methods=['GET', 'POST'])
 def analyze_loan(): 
-    print(request.method)
     if request.method == 'POST':
-        print("This is an POST request!")
         # Your Loan
-        ReasonforLoan = request.form.get('ReasonforLoan')
+        ReasonforLoan = int(request.form.get('ReasonforLoan'))
         more_information = request.form.get('more_information')
         Loan_Amount = request.form.get('Loan_Amount')
-        pay_frequency = request.form.get('pay_frequency')
+        pay_frequency = int(request.form.get('pay_frequency'))
         # About You
         user_name_initials = request.form.get('user_name_initials')
         FirstName = request.form.get('FirstName')
@@ -127,14 +157,13 @@ def analyze_loan():
 
         DateOfBirth = request.form.get('DateOfBirth')
         MobileNumber = request.form.get('MobileNumber')
-        workEmail = request.form.get('workEmail')
+        userEmail = request.form.get('workEmail')
         
-        ReEnterWorkEmail = request.form.get('ReEnterWorkEmail')
         Password = request.form.get('Password')
         confPassword = request.form.get('confPassword')
         # Employment Details
         Employment_Status = request.form.get('Employment_Status')
-        Annual_Gross_Income = request.form.get('Annual_Gross_Income')
+        Annual_Gross_Income = int(request.form.get('Annual_Gross_Income'))
         # Expenses Details
         Total_expenses = request.form.get('Total_expenses')
         # Confirm Your Contact Details
@@ -150,9 +179,7 @@ def analyze_loan():
         IcanConfirm = request.form.get('IcanConfirm')
         IhaveReviewed = request.form.get('IhaveReviewed')
         IhaveRead = request.form.get('IhaveRead')
-
-        print(FirstName,MiddleName,LastName)
-        print(request.form)
+        print("This is rrequest.form",request.form)
 
    
 
@@ -160,9 +187,14 @@ def analyze_loan():
     Loan_Amount = int(Loan_Amount)
     total_repayment_amount__c = calculateRepayentAmout(Loan_Amount,pay_frequency)
 
+
+    make_Random = make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expenses,total_repayment_amount__c)
+
+
+
     JSONString = {"body":{
       'id': str(an_id),
-      'Opportunity_Origin__c': 'MoneySpot',
+      'Opportunity_Origin__c': 'Mindruby',
       'DNB_Scoring_Rate__c': '',
       'Current_Balance__c': '',
       'Applicant_Type__c': 'Existing Client-Granted Loan Before',
@@ -207,23 +239,42 @@ def analyze_loan():
       'Income_source_is_other_income_549__c': '0',
       'Bank_Report_Gov_Benefit__c': '1',
       'Income_source_is_a_government_benefit__c': '1',
-      'Summary_Income__c': '0',
+      'Summary_Income__c': Annual_Gross_Income,
       'Summary_Expenses__c': Total_expenses,
       'Rent_Mortgage__c': '150',
       'Summary_Total__c': '1049.64',
       'Loan_Amount__c': f"${Loan_Amount}",
       'Total_Repayment_Amount__c': total_repayment_amount__c
     }}
-
     json_object = json.dumps(JSONString)  
+    return {"FormData":request.form,"jsonString":JSONString}
     # Requesting the server for the Data
     headers = {}
     method = "POST"
     url = 'https://bd8gizd4mg.execute-api.us-east-1.amazonaws.com/prod'
     headers['x-api-key'] = config.SERVER_API_KEY
-    response_from_server = make_request(method,url,headers,payload=json_object)
+    response_from_server = {}
 
-    return {"FormData":request.form,"QueryString":json_object,"response":response_from_server}
+    # response_from_server = make_request(method,url,headers,payload=json_object)
+
+    #requsting the Salesforce server for Oppportunity generation
+    URL = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/"
+    print("This is user email",userEmail)
+    payload = {
+        "first_name":f"{FirstName}",
+        "last_name":f"{LastName}",
+        "email":f"{userEmail}",
+        "mobile":f"{MobileNumber}",
+        "pay_frequency":f"{pay_frequency_convert(pay_frequency)}",
+        "loan_reason":f"{Loan_reason_convert(ReasonforLoan)}",
+        "amount":Loan_Amount
+    }
+    print("The payload of the salesforce api data is : ",payload)
+    payload = json.dumps(payload)  
+    response_from_salesforce_server = {}
+    # response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+
+    return {"FormData":request.form,"QueryString":json_object,"response":response_from_server,"response_from_salesforce_server":response_from_salesforce_server}
 
 @app.route('/creditsense')
 def creditsense_info():
