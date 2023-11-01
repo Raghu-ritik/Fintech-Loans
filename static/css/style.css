@@ -162,7 +162,7 @@ border-bottom: 1.5px solid #a7a7a72e !important;
 }
 .btn.name-title {
 padding: 8px !important;
-border-radius: 5px 0 0 5px !important;
+border-radius: 5px !important;
 color: #8B939D !important;
 border: 1px solid rgba(126, 146, 162, 0.30) !important;
 }
@@ -240,7 +240,7 @@ h1.banner-heading {
 display: flex;
 align-items: center;
 justify-content: center;
-min-height: 480px;
+min-height: 350px;
 color: #fff;
 font-weight: 800;
 }
@@ -273,6 +273,10 @@ a.nav-link:hover {
 color: #fff;
 text-decoration: underline;
 }
+.form-check{
+    display: flex !important;
+    align-items: center;
+}
 .form-check-input {
 flex-shrink: 0;
 width: 20px;
@@ -298,6 +302,7 @@ font-weight: 700;
 ul#myTabs>li {
 margin-right: 10px;
 font-size: 14px !important;
+margin-top: 10px;
 }
 .btn-outline-primary {
 color: #3e3e3e;
@@ -463,3 +468,27 @@ border: 1px solid #fd4e19 !important;
 .search-input {
     border-radius: 5px 0px 0px 5px !important;
 }
+.error{
+    color: red;
+    font-size: 12px;
+}
+#DateOfBirth {
+    color: #354356;
+  }
+  .cash-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  @media (max-width:767px) {
+    .cash-flex{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .form-check{
+        align-items: flex-start;
+    }
+  }

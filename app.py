@@ -1,5 +1,6 @@
  # using flask_restful
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, session
+ 
 
 import mysql.connector
 from sklearn.preprocessing import LabelEncoder
@@ -10,10 +11,18 @@ import json
 import random
 import requests
 import config
+import DataBaseOperations
 
 # creating the flask app
 app = Flask(__name__)
 app.static_folder = 'static'
+
+@app.route('/allbanks')
+def get_all_banks():
+    Banks = DataBaseOperations.AllBanksSelect()
+    return {"Banks":Banks}
+
+
 
 def Connect_with_db_get_df():
     connection = mysql.connector.connect(
@@ -120,15 +129,6 @@ def pay_frequency_convert(pay_frequency):
     elif pay_frequency == 4:
         return "Other".upper()
 
-def Loan_reason_convert(Loan_reason):
-    if Loan_reason==0:
-        return "Car Expenses"
-    elif Loan_reason == 1:
-        return "Insurance"
-    elif Loan_reason == 2:
-        return "Medical"
-    elif Loan_reason == 3:
-        return "Product Purchase"
 
 
 def make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expenses,total_repayment_amount__c):
@@ -155,7 +155,7 @@ def make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expe
 def analyze_loan(): 
     if request.method == 'POST':
         # Your Loan
-        ReasonforLoan = int(request.form.get('ReasonforLoan'))
+        ReasonforLoan =  request.form.get('ReasonforLoan')
         more_information = request.form.get('more_information')
         Loan_Amount = request.form.get('Loan_Amount')
         pay_frequency = int(request.form.get('pay_frequency'))
@@ -280,27 +280,26 @@ def analyze_loan():
 
     #requsting the Salesforce server for Oppportunity generation
     URL = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/"
-    print("This is user email",userEmail)
     payload = {
         "first_name":f"{FirstName}",
         "last_name":f"{LastName}",
         "email":f"{userEmail}",
         "mobile":f"{MobileNumber}",
         "pay_frequency":f"{pay_frequency_convert(pay_frequency)}",
-        "loan_reason":f"{Loan_reason_convert(ReasonforLoan)}",
+        "loan_reason":f"{ReasonforLoan}",
         "amount":Loan_Amount,
         "opp_fields" :  extract_Random_record
     }
     method = "POST"
     payload = json.dumps(payload)  
     response_from_salesforce_server = {}
-    response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+    # response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
 
     return {"FormData":request.form,"payload_QueryString":payload,"response_from_salesforce_server":response_from_salesforce_server}
 
 @app.route('/creditsense')
 def creditsense_info():
-    return render_template('credit_sense_1.html')
+    return render_template('credit_sense_pages/Credit_sense_page_1.html')
 
 
 if __name__ == '__main__':

@@ -1,0 +1,35 @@
+{
+    "Car Expenses": [
+      "Vehicle Registration",
+      "Vehicle Insurance",
+      "Vehicle Maintenance (eg Service)",
+      "Vehicle Repairs"
+    ],
+    "Insurance": [
+      "Car",
+      "Health",
+      "Home",
+      "Contents",
+      "Pet"
+    ],
+    "Medical Expenses": [
+      "Physiotherapy",
+      "Chiropractor",
+      "Operation",
+      "Wisdom Teeth",
+      "Root Canal",
+      "Check-Up"
+    ],
+    "Product Purchases": [
+      "TV",
+      "Mobile Phone",
+      "Laptop",
+      "Computer",
+      "Printer",
+      "Jewellery",
+      "Sporting Equipment",
+      "Boat",
+      "Vehicle"
+    ]
+  }
+  
