@@ -1,5 +1,5 @@
  # using flask_restful
-from flask import Flask, jsonify, request, render_template, session
+from flask import Flask, jsonify, request, render_template, session, redirect
  
 
 import mysql.connector
@@ -54,15 +54,10 @@ def Connect_with_db_get_df():
 
     # Display the DataFrame
     return df_raw
- 
-
- 
-
-
 
 
 @app.route('/')
-def main_methods():
+def main_methods(): 
     return render_template('index.html')
 
 @app.route('/applyLoan')
@@ -153,149 +148,157 @@ def make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expe
 
 @app.route('/analyzeLoan', methods=['POST'])
 def analyze_loan(): 
-    if request.method == 'POST':
-        # Your Loan
-        ReasonforLoan =  request.form.get('ReasonforLoan')
-        more_information = request.form.get('more_information')
-        Loan_Amount = request.form.get('Loan_Amount')
-        pay_frequency = int(request.form.get('pay_frequency'))
-        # About You
-        user_name_initials = request.form.get('user_name_initials')
-        FirstName = request.form.get('FirstName')
-        MiddleName = request.form.get('MiddleName')
-        LastName = request.form.get('LastName')
+    try:
+        if request.method == 'POST':
+            # Your Loan
+            ReasonforLoan =  request.form.get('ReasonforLoan')
+            more_information = request.form.get('more_information')
+            Loan_Amount = request.form.get('Loan_Amount')
+            pay_frequency = int(request.form.get('pay_frequency'))
+            # About You
+            user_name_initials = request.form.get('user_name_initials')
+            FirstName = request.form.get('FirstName')
+            MiddleName = request.form.get('MiddleName')
+            LastName = request.form.get('LastName')
 
-        DateOfBirth = request.form.get('DateOfBirth')
-        MobileNumber = request.form.get('MobileNumber')
-        userEmail = request.form.get('workEmail')
-        
-        Password = request.form.get('Password')
-        confPassword = request.form.get('confPassword')
-        # Employment Details
-        Employment_Status = request.form.get('Employment_Status')
-        Annual_Gross_Income = int(request.form.get('Annual_Gross_Income'))
-        # Expenses Details
-        Total_expenses = request.form.get('Total_expenses')
-        # Confirm Your Contact Details
-        user_street_name = request.form.get('user_street_name')
-        user_address_suburb = request.form.get('user_address_suburb')
-        user_address_postcode = request.form.get('user_address_postcode')
-        
-        user_city = request.form.get('user_city')
-        user_state = request.form.get('user_state')
-        # Your Employer Information
-        Employer_name = request.form.get('Employer_name')
-        # I Confirm
-        IcanConfirm = request.form.get('IcanConfirm')
-        IhaveReviewed = request.form.get('IhaveReviewed')
-        IhaveRead = request.form.get('IhaveRead')
-        print("This is rrequest.form",request.form)
+            DateOfBirth = request.form.get('DateOfBirth')
+            MobileNumber = request.form.get('MobileNumber')
+            userEmail = request.form.get('workEmail')
+            
+            Password = request.form.get('Password')
+            confPassword = request.form.get('confPassword')
+            # Employment Details
+            Employment_Status = request.form.get('Employment_Status')
+            Annual_Gross_Income = int(request.form.get('Annual_Gross_Income'))
+            # Expenses Details
+            Total_expenses = request.form.get('Total_expenses')
+            # Confirm Your Contact Details
+            user_street_name = request.form.get('user_street_name')
+            user_address_suburb = request.form.get('user_address_suburb')
+            user_address_postcode = request.form.get('user_address_postcode')
+            
+            user_city = request.form.get('user_city')
+            user_state = request.form.get('user_state')
+            # Your Employer Information
+            Employer_name = request.form.get('Employer_name')
+            # I Confirm
+            IcanConfirm = request.form.get('IcanConfirm')
+            IhaveReviewed = request.form.get('IhaveReviewed')
+            IhaveRead = request.form.get('IhaveRead')
+            print("This is request.form",request.form)
 
-   
-
-    an_id = f'{random.randrange(16**18):018x}'
-    Loan_Amount = int(Loan_Amount)
-    total_repayment_amount__c = calculateRepayentAmout(Loan_Amount,pay_frequency)
-
-
-    extract_Random_record = make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expenses,total_repayment_amount__c)
-    del extract_Random_record['id']
-    extract_Random_record["Summary_Income__c"]         = Annual_Gross_Income
-    extract_Random_record["Summary_Expenses__c"]       = int(Total_expenses)
-    extract_Random_record["Loan_Amount__c"]            = int(Loan_Amount)
-    extract_Random_record["Total_Repayment_Amount__c"] = total_repayment_amount__c
-    for key,val in extract_Random_record.items():
-        if ("date" in  key) and extract_Random_record[key] == 0:
-            extract_Random_record[key] = ""
-        elif type(val) == type(3.4):
-            extract_Random_record[key] = int(val)
     
 
-
-    JSONString = {"body":{
-    #   'id': str(an_id),
-    #   'Opportunity_Origin__c': 'Mindruby',
-    #   'DNB_Scoring_Rate__c': '',
-    #   'Current_Balance__c': '',
-    #   'Applicant_Type__c': 'Existing Client-Granted Loan Before',
-    #   'Opp_number__C': '6316542',
-    #   'Multiple_Lenders_Hardship__c': '10.96',
-    #   'income_as_a_of_DP200_income__c': '86.0',
-    #   'Deposit_spent_on_DOD__c': '24.9',
-    #   'DP_Monthly_avg_of_SACC_repayments__c': '586',
-    #   'Monthly_ongoing_financial_commitments__c': '88.39',
-    #   'DP_Primary_income_frequency__c': pay_frequency,
-    #   'DP_Primary_income_last_pay_date__c': '09/08/2023',
-    #   'DP_enders_with_uncleared_dishonours_233__c': '0',
-    #   'Primary_regular_benefit_frequency__c': '4',
-    #   'Last_pay_date_for_largest_inc_src_302__c': '17/08/2023',
-    #   'Largest_income_source_day_of_week__c': '4',
-    #   'Next_pay_date_for_largest_income_source__c': '',
-    #   'Frequency_for_largest_income_source__c': '4',
-    #   'Primary_regular_benefit_last_pay_date__c': '17/08/2023',
-    #   'loan_dishonours__c': '0',
-    #   'Primary_regular_benefit_monthly_amount__c': '1094.9366',
-    #   'Courts_and_Fines_transactions__c': '0',
-    #   'Total_monthly_income_ongoin_Reg_231__c': '1311.6032',
-    #   'DP_Total_Monthly_Benefit_Income__c': '2071',
-    #   'DP_Dishonours_Across_Primary_Acct_244__c': '0',
-    #   'DP_No_Direct_Debits_On_Primary_Acct_355__c': '3',
-    #   'DP_Budget_Management_Services__c': '0',
-    #   'Hardship_Indicator_Gambling__c': '27.12',
-    #   'DP_Monthly_rent_amount_236__c': '0',
-    #   'Amount_of_SACC_commitments_due__c': '0',
-    #   'Largest_income_Src_Avg_freq__c': '1094.9366',
-    #   'Largest_income_Src_last_payment_amt__c': '967.9',
-    #   'Deposits_since_last_SACC_dishonour__c': '9',
-    #   'SACC_commitments_due_next_month__c': '0',
-    #   'Total_monthly_credits__c': '2408',
-    #   'agency_collection_providers__c': '0',
-    #   'Collection_agency_transactions__c': '0',
-    #   'Average_monthly_amount_of_Courts_and_Fin__c': '0',
-    #   'Courts_and_Fines_providers__c': '0',
-    #   'income_DP200_spend_on_high_risk_merch__c': '12.33',
-    #   'most_recent_loan_has_no_repayments__c': '0',
-    #   'Deposits_since_last_dishonour__c': '9',
-    #   'Income_source_is_other_income_549__c': '0',
-    #   'Bank_Report_Gov_Benefit__c': '1',
-    #   'Income_source_is_a_government_benefit__c': '1',
-    #   'Summary_Income__c': Annual_Gross_Income,
-    #   'Summary_Expenses__c': Total_expenses,
-    #   'Rent_Mortgage__c': '150',
-    #   'Summary_Total__c': '1049.64',
-    #   'Loan_Amount__c': f"${Loan_Amount}",
-    #   'Total_Repayment_Amount__c': total_repayment_amount__c
-    }}
-    {
-        # json_object = json.dumps(JSONString)
-        # Requesting the server for the Data
-        # headers = {}
-        # method = "POST"
-        # url = 'https://bd8gizd4mg.execute-api.us-east-1.amazonaws.com/prod'
-        # headers['x-api-key'] = config.SERVER_API_KEY
-        # response_from_server = {}
-        # response_from_server = make_request(method,url,headers,payload=json_object)
-    }
+        an_id = f'{random.randrange(16**18):018x}'
+        Loan_Amount = int(Loan_Amount)
+        total_repayment_amount__c = calculateRepayentAmout(Loan_Amount,pay_frequency)
 
 
-    #requsting the Salesforce server for Oppportunity generation
-    URL = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/"
-    payload = {
-        "first_name":f"{FirstName}",
-        "last_name":f"{LastName}",
-        "email":f"{userEmail}",
-        "mobile":f"{MobileNumber}",
-        "pay_frequency":f"{pay_frequency_convert(pay_frequency)}",
-        "loan_reason":f"{ReasonforLoan}",
-        "amount":Loan_Amount,
-        "opp_fields" :  extract_Random_record
-    }
-    method = "POST"
-    payload = json.dumps(payload)  
-    response_from_salesforce_server = {}
-    # response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+        extract_Random_record = make_Random_payload(Loan_Amount,pay_frequency,Annual_Gross_Income,Total_expenses,total_repayment_amount__c)
+        del extract_Random_record['id']
+        extract_Random_record["Summary_Income__c"]         = Annual_Gross_Income
+        extract_Random_record["Summary_Expenses__c"]       = int(Total_expenses)
+        extract_Random_record["Loan_Amount__c"]            = int(Loan_Amount)
+        extract_Random_record["Total_Repayment_Amount__c"] = total_repayment_amount__c
+        for key,val in extract_Random_record.items():
+            if ("date" in  key) and extract_Random_record[key] == 0:
+                extract_Random_record[key] = ""
+            elif type(val) == type(3.4):
+                extract_Random_record[key] = int(val)
+        
 
-    return {"FormData":request.form,"payload_QueryString":payload,"response_from_salesforce_server":response_from_salesforce_server}
+
+        JSONString = {"body":{
+        #   'id': str(an_id),
+        #   'Opportunity_Origin__c': 'Mindruby',
+        #   'DNB_Scoring_Rate__c': '',
+        #   'Current_Balance__c': '',
+        #   'Applicant_Type__c': 'Existing Client-Granted Loan Before',
+        #   'Opp_number__C': '6316542',
+        #   'Multiple_Lenders_Hardship__c': '10.96',
+        #   'income_as_a_of_DP200_income__c': '86.0',
+        #   'Deposit_spent_on_DOD__c': '24.9',
+        #   'DP_Monthly_avg_of_SACC_repayments__c': '586',
+        #   'Monthly_ongoing_financial_commitments__c': '88.39',
+        #   'DP_Primary_income_frequency__c': pay_frequency,
+        #   'DP_Primary_income_last_pay_date__c': '09/08/2023',
+        #   'DP_enders_with_uncleared_dishonours_233__c': '0',
+        #   'Primary_regular_benefit_frequency__c': '4',
+        #   'Last_pay_date_for_largest_inc_src_302__c': '17/08/2023',
+        #   'Largest_income_source_day_of_week__c': '4',
+        #   'Next_pay_date_for_largest_income_source__c': '',
+        #   'Frequency_for_largest_income_source__c': '4',
+        #   'Primary_regular_benefit_last_pay_date__c': '17/08/2023',
+        #   'loan_dishonours__c': '0',
+        #   'Primary_regular_benefit_monthly_amount__c': '1094.9366',
+        #   'Courts_and_Fines_transactions__c': '0',
+        #   'Total_monthly_income_ongoin_Reg_231__c': '1311.6032',
+        #   'DP_Total_Monthly_Benefit_Income__c': '2071',
+        #   'DP_Dishonours_Across_Primary_Acct_244__c': '0',
+        #   'DP_No_Direct_Debits_On_Primary_Acct_355__c': '3',
+        #   'DP_Budget_Management_Services__c': '0',
+        #   'Hardship_Indicator_Gambling__c': '27.12',
+        #   'DP_Monthly_rent_amount_236__c': '0',
+        #   'Amount_of_SACC_commitments_due__c': '0',
+        #   'Largest_income_Src_Avg_freq__c': '1094.9366',
+        #   'Largest_income_Src_last_payment_amt__c': '967.9',
+        #   'Deposits_since_last_SACC_dishonour__c': '9',
+        #   'SACC_commitments_due_next_month__c': '0',
+        #   'Total_monthly_credits__c': '2408',
+        #   'agency_collection_providers__c': '0',
+        #   'Collection_agency_transactions__c': '0',
+        #   'Average_monthly_amount_of_Courts_and_Fin__c': '0',
+        #   'Courts_and_Fines_providers__c': '0',
+        #   'income_DP200_spend_on_high_risk_merch__c': '12.33',
+        #   'most_recent_loan_has_no_repayments__c': '0',
+        #   'Deposits_since_last_dishonour__c': '9',
+        #   'Income_source_is_other_income_549__c': '0',
+        #   'Bank_Report_Gov_Benefit__c': '1',
+        #   'Income_source_is_a_government_benefit__c': '1',
+        #   'Summary_Income__c': Annual_Gross_Income,
+        #   'Summary_Expenses__c': Total_expenses,
+        #   'Rent_Mortgage__c': '150',
+        #   'Summary_Total__c': '1049.64',
+        #   'Loan_Amount__c': f"${Loan_Amount}",
+        #   'Total_Repayment_Amount__c': total_repayment_amount__c
+        }}
+        {
+            # json_object = json.dumps(JSONString)
+            # Requesting the server for the Data
+            # headers = {}
+            # method = "POST"
+            # url = 'https://bd8gizd4mg.execute-api.us-east-1.amazonaws.com/prod'
+            # headers['x-api-key'] = config.SERVER_API_KEY
+            # response_from_server = {}
+            # response_from_server = make_request(method,url,headers,payload=json_object)
+        }
+
+
+        #requsting the Salesforce server for Oppportunity generation
+        URL = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/"
+        payload = {
+            "first_name":f"{FirstName}",
+            "last_name":f"{LastName}",
+            "email":f"{userEmail}",
+            "mobile":f"{MobileNumber}",
+            "pay_frequency":f"{pay_frequency_convert(pay_frequency)}",
+            "loan_reason":f"{ReasonforLoan}",
+            "amount":Loan_Amount,
+            "opp_fields" :  extract_Random_record
+        }
+        method = "POST"
+        payload = json.dumps(payload)  
+        response_from_salesforce_server = {}
+        response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+        if response_from_salesforce_server['success']:
+            return redirect(location= "/creditsense",code=302)
+        else:
+            return render_template("SomeIssuesDetected.html" )
+        # return {"FormData":request.form,"payload_QueryString":payload,"response_from_salesforce_server":response_from_salesforce_server}
+    except Exception:
+        print("This is an Exception ",Exception)
+        return render_template("SomeIssuesDetected.html")
+    
 
 @app.route('/creditsense')
 def creditsense_info():
