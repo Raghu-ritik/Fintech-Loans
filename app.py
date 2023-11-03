@@ -22,7 +22,13 @@ def get_all_banks():
     Banks = DataBaseOperations.AllBanksSelect()
     return {"Banks":Banks}
 
-
+@app.route("/login")
+def dashboard():
+    if request.method=="POST":
+        #REDIRECT TO ADMIN PANEL
+        pass
+    else:
+        return render_template("login.html")#, params=params)
 
 def Connect_with_db_get_df():
     connection = mysql.connector.connect(
@@ -289,7 +295,8 @@ def analyze_loan():
         method = "POST"
         payload = json.dumps(payload)  
         response_from_salesforce_server = {}
-        response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+        # response_from_salesforce_server = make_request(method=method,url= URL,payload=payload)
+        response_from_salesforce_server['success']=True
         if response_from_salesforce_server['success']:
             return redirect(location= "/creditsense",code=302)
         else:
@@ -303,6 +310,12 @@ def analyze_loan():
 @app.route('/creditsense')
 def creditsense_info():
     return render_template('credit_sense_pages/Credit_sense_page_1.html')
+
+
+@app.route('/loan_process_holding')
+def loan_process_holding():
+    return render_template('Loan_process/Loan_process_thank.html')
+
 
 
 if __name__ == '__main__':

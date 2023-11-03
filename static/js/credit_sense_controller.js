@@ -209,5 +209,8 @@
         setTimeout(()=>{
             $("#LoginPending-Status").css("display","none");
             LoginStatus.css("display","flex");
+            setTimeout(()=>{
+                window.location.href = "/loan_process_holding";
+            },generate_random_(10000))
         },generate_random_(12000)); 
     });

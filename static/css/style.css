@@ -492,3 +492,33 @@ border: 1px solid #fd4e19 !important;
         align-items: flex-start;
     }
   }
+
+  .container-thank {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 100px rgba(253, 78, 25, 0.07);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px;
+    text-align: center;
+    border: 0.5px solid #8080802b;
+    margin: 50px auto;
+}
+
+.Thank {
+    color: #4caf50;
+    font-size: 36px;
+}
+
+.Thank-msg {
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.icon-thank {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
