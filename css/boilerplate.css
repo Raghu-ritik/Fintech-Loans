@@ -1,0 +1,358 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+.span2 {
+width: 16.6%;
+padding: 0;
+}
+
+.logo-outside {
+width: 100%;
+margin-bottom: 12px;
+text-align: center;
+cursor: pointer;
+display: block;
+max-width: 90%;
+padding: 10px 20px;
+}
+
+.logoBox {
+width: 100%;
+height: 70px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.logoBox img {
+max-width: 100%;
+}
+
+.span2 a {
+background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+background-repeat: repeat-x;
+border: 1px solid #cccccc;
+}
+
+#BankSelect .page-header h2, #BankCredentials h2 {font-size: 31.5px;margin: 10px 0;font-family: 'Roboto', sans-serif;padding: 0;color: rgb(51, 51, 51);}
+
+
+.bank-select {
+font-size: 31px !important;
+line-height: 1.1 !important;
+display: block;
+width: 100%!important;
+height: 75px;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+padding: 0 33px!important;
+-webkit-border-radius: 4px 0 0 4px;
+-moz-border-radius: 4px 0 0 4px;
+border-radius: 4px 0 0 4px;
+background-color: #ffffff;
+border: 1px solid #cccccc;
+}
+
+#BankSelect .hidden-phone .row {
+flex-wrap: nowrap;
+}
+
+
+.bank-select::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+font-size:31px!important;
+}
+.bank-select::-moz-placeholder { /* Firefox 19+ */
+font-size:31px!important;
+}
+.bank-select:-ms-input-placeholder { /* IE 10+ */
+font-size:31px!important;
+}
+.bank-select:-moz-placeholder { /* Firefox 18- */
+font-size:31px!important;
+}
+.bank-select-label {
+display: inline-block;
+
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+text-shadow: 0 1px 0 #ffffff;
+background-color: #eeeeee;
+border-right: 1px solid #ccc;
+position: absolute;
+z-index: 1;
+top: 1px;
+height: 73px;
+left: 1px;
+width: 28px;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 5px 0 0 5px;
+}
+
+.input-append {
+position: relative;
+}
+button.bank-select-label {
+position: absolute;
+z-index: 1;
+top: 1px;
+right: 1px;
+left: inherit;
+border-radius: 0;
+background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+width: 34px;
+padding-left: 0!important;
+padding-right: 0!important;
+}
+button.bank-select-label:hover {
+background-color: #e6e6e6!important;
+border:none!important;
+-webkit-transition: background-position 0.1s linear;
+-moz-transition: background-position 0.1s linear;
+-o-transition: background-position 0.1s linear;
+transition: background-position 0.1s linear;}
+.caret {
+display: inline-block;
+width: 0;
+height: 0;
+vertical-align: top;
+border-top: 4px solid #000000;
+border-right: 4px solid transparent;
+border-left: 4px solid transparent;
+content: "";
+}
+
+span.add-on.bank-select-label svg {
+width: 14px;
+height: 14px;
+}
+
+.bank-select:focus-visible {
+outline: none;
+}
+
+#associated-bank-select.selectable {
+padding: 4px 6px;
+padding-right: 25px;
+position: relative;
+border-radius: 5px;
+cursor: pointer;
+background-color: white;
+border: 1px solid #cccccc;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+font-size: 21px !important;
+line-height: 1.1 !important;
+box-sizing: border-box;
+width: 100% !important;
+height: auto !important;
+color: #555555;
+margin-bottom: 10px;
+}
+#associated-banks {
+position: absolute;
+left: -1px;
+top: 100%;
+list-style-type: none;
+margin: 0px;
+padding: 0px 5px 5px;
+font-size: 80%;
+background: white;
+width: calc(100% + 2px);
+box-sizing: border-box;
+border: 1px solid #cccccc;
+border-radius: 0px 0px 6px 6px;
+box-shadow: rgba(0, 0, 0, 0.6) 0px 4px 14px -5px;
+z-index: 1;
+}
+#associated-bank-select:after {
+content: '';
+width: 20px;
+height: 20px;
+background: url(https://creditsense.com.au/views/Consolidation/img/glyphicons-halflings.png);
+background-position: -310px -116px;
+position: absolute;
+right: 8px;
+top: 50%;
+margin-top: -11px;
+}
+#associated-banks li {
+padding: 4px 2px;
+cursor: pointer;
+}
+
+form#bankform label {
+display: block;
+margin-bottom: 5px;
+font-weight: normal;
+}
+form#bankform input {background-color: #ffffff;border: 1px solid #cccccc;-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);-webkit-transition: border linear 0.2s, box-shadow linear 0.2s;-moz-transition: border linear 0.2s, box-shadow linear 0.2s;-o-transition: border linear 0.2s, box-shadow linear 0.2s;transition: border linear 0.2s, box-shadow linear 0.2s;width: 100% !important;margin-bottom: 10px;border-radius: 4px;height: 33px;}
+
+.alert.help-warning {
+padding: 8px;
+margin-bottom: 20px;
+text-shadow: none;
+background-color: #fcf8e3;
+border: 1px solid #fbeed5;
+border-top-color: rgb(251, 238, 213);
+border-right-color: rgb(251, 238, 213);
+border-bottom-color: rgb(251, 238, 213);
+border-left-color: rgb(251, 238, 213);
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+display: inline-block;
+color: #c09853;
+}
+
+.big-button {
+width: 160px;
+height: 60px;
+font-size: 1.4em;
+line-height: 1;
+border-radius: 6px;
+font-family: 'Roboto', sans-serif;
+}
+.btn-success.btn:disabled {
+color: #ffffff;
+background-color: #51a351;
+}
+.btnGroup {
+max-width: 650px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 50px;
+display: flex;
+justify-content: space-between;
+}
+
+.btnGroup button {
+font-weight: normal;
+}
+
+.btnGroup .btn-inverse {
+color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color : #363636;
+*background-color : #222222;
+background-image: -moz-linear-gradient(top, #444444, #222222);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+background-image: -webkit-linear-gradient(top, #444444, #222222);
+background-image: -o-linear-gradient(top, #444444, #222222);
+background-image: linear-gradient(to bottom, #444444, #222222);
+background-repeat: repeat-x;
+border-color: #222222 #222222 #000000;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+
+.btn[disabled] {
+opacity: 0.25;
+}
+
+#Terms {
+color: #333;
+font-family: 'Roboto', sans-serif;
+}
+
+.WordSection1 {    max-height: 206px;
+overflow-y: auto;
+background: white;
+border: 1px solid;
+padding: 5px;}
+
+#loading-terms-and-condition{
+margin-top: 13px;
+}
+#Terms .btn-success, #Q-Benefits .btn-success {color: #ffffff;
+text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+background-color: #5bb75b;
+*background-color: #51a351;
+background-image: -moz-linear-gradient(top, #62c462, #51a351);
+background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+background-image: -o-linear-gradient(top, #62c462, #51a351);
+background-image: linear-gradient(to bottom, #62c462, #51a351);
+background-repeat: repeat-x;
+border-color: #51a351 #51a351 #387038;
+border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);}
+
+#accept-terms {
+max-width: 650px;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 50px;
+display: flex;
+justify-content: space-between;
+margin-top: 20px;
+}
+
+#accept-terms button {
+font-weight: normal;
+}
+
+#accept-terms .btn-success:hover {
+background-color: #51a351!important;
+border: none!important;
+color: #fff!important;
+}
+p.lead {
+color: #333;
+}
+.bankAcSearch ul {
+background: #fff;
+list-style: none;
+padding: 0;
+max-height: 260px;
+max-width: 100%;
+overflow-y: scroll;
+overflow-x: hidden;
+font-size: 20px;
+line-height: 1.2;
+border: 1px solid #d3d3d3;
+width: 98%!important;
+}
+.bankAcSearch ul li{
+padding: 3px 1em 3px .4em;
+cursor:pointer;
+border-top:1px solid transparent;
+border-bottom:1px solid transparent;
+color: #222;
+font-size: 20px;
+}
+.bankAcSearch ul li:hover{
+border-top:1px solid #333;
+border-bottom:1px solid #333;
+}
+.alignMiddle{
+display: flex;
+align-items: center;
+justify-content: center;
+min-height:100vh ;
+}
+
+.BankLoginResult .lead {
+margin-bottom: 20px;
+font-size: 21px;
+font-weight: 200;
+line-height: 30px;
+}
+.success {
+color: #468847;
+}
+#LoginStatus .alert {
+color: rgb(123,98,54);
+background-color: rgb(252,248,231);
+display: inline-block;
+}

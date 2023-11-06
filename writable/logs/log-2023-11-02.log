@@ -1,0 +1,193 @@
+CRITICAL - 2023-11-02 06:59:30 --> syntax error, unexpected double-quoted string ">", expecting "," or ";"
+in APPPATH/Views/applyLoan.php on line 13.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render('applyLoan', [], true)
+ 3 APPPATH/Controllers/Home.php(63): view('applyLoan')
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->applyLoan()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:11:06 --> syntax error, unexpected token "(", expecting variable
+in APPPATH/Controllers/Home.php on line 13.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:15:39 --> syntax error, unexpected token "="
+in APPPATH/Controllers/Home.php on line 115.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:16:06 --> syntax error, unexpected token ";", expecting ")"
+in APPPATH/Controllers/Home.php on line 123.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:16:36 --> syntax error, unexpected token "unset"
+in APPPATH/Controllers/Home.php on line 143.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:18:54 --> Undefined array key "user_name_initials"
+in APPPATH/Controllers/Home.php on line 113.
+ 1 APPPATH/Controllers/Home.php(113): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_name_initials"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 113)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:19:47 --> Undefined array key "workEmail"
+in APPPATH/Controllers/Home.php on line 117.
+ 1 APPPATH/Controllers/Home.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "workEmail"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 117)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:20:04 --> Undefined array key "email"
+in APPPATH/Controllers/Home.php on line 117.
+ 1 APPPATH/Controllers/Home.php(117): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "email"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 117)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:21:35 --> random_int(): Argument #2 ($max) must be of type int, float given
+in APPPATH/Controllers/Home.php on line 138.
+ 1 APPPATH/Controllers/Home.php(138): random_int(0, 4722366482869645213696.0)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:22:57 --> random_int(): Argument #1 ($min) must be less than or equal to argument #2 ($max)
+in APPPATH/Controllers/Home.php on line 138.
+ 1 APPPATH/Controllers/Home.php(138): random_int(0, -1)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:24:42 --> Call to undefined function App\Controllers\calculateRepayentAmout()
+in APPPATH/Controllers/Home.php on line 140.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:44:06 --> Undefined variable $pay_frequency
+in APPPATH/Controllers/Home.php on line 140.
+ 1 APPPATH/Controllers/Home.php(140): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pay_frequency', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 140)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:53:45 --> syntax error, unexpected variable "$FirstName"
+in APPPATH/Controllers/Home.php on line 112.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:53:46 --> syntax error, unexpected variable "$FirstName"
+in APPPATH/Controllers/Home.php on line 112.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:55:21 --> Cannot unset string offsets
+in APPPATH/Controllers/Home.php on line 144.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 09:56:05 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Home.php on line 145.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:06:50 --> App\Controllers\Home::make_Random_payload(): Return value must be of type string, array returned
+in APPPATH/Controllers/Home.php on line 60.
+ 1 APPPATH/Controllers/Home.php(153): App\Controllers\Home->make_Random_payload(0, 1, 123045, '23045', '240')
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:12:42 --> Call to undefined function App\Controllers\pay_frequency_convert()
+in APPPATH/Controllers/Home.php on line 177.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:14:49 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Home.php on line 210.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:23:50 --> Undefined variable $response_from_salesforce_server
+in APPPATH/Controllers/Home.php on line 212.
+ 1 APPPATH/Controllers/Home.php(212): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $response_from_salesforce_server', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 212)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:38:00 --> Undefined constant "App\Controllers\key"
+in APPPATH/Controllers/Home.php on line 176.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 10:40:51 --> Undefined variable $key
+in APPPATH/Controllers/Home.php on line 172.
+ 1 APPPATH/Controllers/Home.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $key', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 172)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 11:57:46 --> Undefined variable $key
+in APPPATH/Controllers/Home.php on line 172.
+ 1 APPPATH/Controllers/Home.php(172): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $key', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 172)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 12:23:43 --> syntax error, unexpected identifier "json_encode"
+in APPPATH/Controllers/Home.php on line 208.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 12:35:44 --> syntax error, unexpected variable "$ch"
+in APPPATH/Controllers/Home.php on line 216.
+ 1 SYSTEMPATH/Autoloader/Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('/opt/lampp/htdocs/ci4/app/Controllers/Home.php')
+ 2 SYSTEMPATH/Autoloader/Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH/CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH/CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-02 12:38:15 --> Call to undefined function App\Controllers\custom_json_encode()
+in APPPATH/Controllers/Home.php on line 209.
+ 1 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 2 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 3 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
