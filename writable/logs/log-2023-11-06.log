@@ -1,0 +1,225 @@
+CRITICAL - 2023-11-06 06:09:58 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 143.
+ 1 APPPATH/Controllers/Home.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 143)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 06:14:30 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 143.
+ 1 APPPATH/Controllers/Home.php(143): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 143)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:07:52 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:09:31 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:10:08 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:10:25 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:11:10 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 07:11:26 --> Undefined array key "pay_frequency"
+in APPPATH/Controllers/Home.php on line 146.
+ 1 APPPATH/Controllers/Home.php(146): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "pay_frequency"', '/opt/lampp/htdocs/ci4/app/Controllers/Home.php', 146)
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-06 12:07:42 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php(185): mysqli->real_connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#7 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-11-06 12:07:42 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-06 12:07:42 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php(185): mysqli->real_connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#7 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-11-06 12:07:42 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-06 12:07:42 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php(185): mysqli->real_connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#7 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-11-06 12:07:42 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-06 12:07:43 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php(185): mysqli->real_connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#7 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-11-06 12:07:43 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-06 12:07:43 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:185
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php(185): mysqli->real_connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#7 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#8 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/MySQLi/Connection.php:229
+Stack trace:
+#0 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(392): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /homepages/28/d187112527/htdocs/Loans.Ideavate/app/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+#3 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+#4 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#5 /homepages/28/d187112527/htdocs/Loans.Ideavate/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#6 /homepages/28/d187112527/htdocs/Loans.Ideavate/index.php(80): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2023-11-06 12:07:43 --> Unable to connect to the database.
+Main connection [MySQLi]: No such file or directory
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 APPPATH/Controllers/Home.php(254): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->allbanks()
+ 4 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 12:33:40 --> Attempt to read property "success" on null
+in APPPATH/Controllers/Home.php on line 236.
+ 1 APPPATH/Controllers/Home.php(236): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-06 12:34:14 --> Attempt to read property "success" on null
+in APPPATH/Controllers/Home.php on line 236.
+ 1 APPPATH/Controllers/Home.php(236): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(80): CodeIgniter\CodeIgniter->run()

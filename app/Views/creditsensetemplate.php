@@ -19,28 +19,6 @@
               <div class="col-12">
                  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
                     <a class="navbar-brand  text-uppercase text-dark-primary" href="/"><img src="<?=base_url('images/money-bag.png') ?>" class="img-fluid" alt=""> <b>Fintech</b> Loans</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                       <ul class="navbar-nav mx-auto">
-                          <li class="nav-item ">
-                             <a class="nav-link text-dark" href="/">Home <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item ">
-                             <a class="nav-link text-dark" href="#OurFeatures">Who we are <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item ">
-                             <a class="nav-link text-dark" href="#WeOfferLoanProducts">What we offer <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item ">
-                             <a class="nav-link text-dark" href="#">FAQ's <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item ">
-                             <a class="nav-link text-dark" href="#WeareHereToHelpYou">Contact <span class="sr-only">(current)</span></a>
-                          </li>
-                       </ul>
-                    </div>
                  </nav>
               </div>
            </div>

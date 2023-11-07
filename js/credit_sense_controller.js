@@ -210,7 +210,7 @@
             $("#LoginPending-Status").css("display","none");
             LoginStatus.css("display","flex");
             setTimeout(()=>{
-                window.location.href = "/ci4/loanprocessholding";
+                window.location.href = "/loanprocessholding";
             },generate_random_(10000))
         },generate_random_(12000)); 
     });

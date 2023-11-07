@@ -1,8 +1,5 @@
 <?php $this->extend('template') ?>
 <?php $this->section('content') ?>
-
-
-      <!-- Navbar -->
  
       <main>
 
@@ -232,7 +229,7 @@
                   <div class="col-md-12">
                      <div class="col-12">
                         <div class="action text-center pt-5">
-                           <a  class="btn btn-primary mb-3"  href="<?=base_url('applyloan');?>>Apply Online Now</a>
+                           <a  class="btn btn-primary mb-3"  href="<?=base_url('applyloan');?>">Apply Online Now</a>
                            <p class="text-dark fs-13">Easy Process. No Paperwork. Get Funded In One Hour</p>
                         </div>
                      </div>
@@ -285,7 +282,7 @@
                      <div class="col-md-4">
                         <div class="card smooth-shadow-sm border-0 m-2">
                            <div class="card-body p-5">
-                              <div class="mb-5"> <img src='images/svg/piggy-bank.svg'>
+                              <div class="mb-5"> <img src='images/svg/piggy-bank.svg'
                                  alt="Borrow - Loan Company Website Template" class="icon-xxl"></div>
                               <h3><a href="#!" class="text-inherit">Education Loan</a></h3>
                               <p>Financial support for students pursuing higher education, covering tuition, books, and living expenses with repayment options.</p>
@@ -323,7 +320,7 @@
                </div>
                <div class="col-12">
                   <div class="action text-center pt-5">
-                     <a  class="btn btn-primary mb-3" href="<?=base_url('applyloan');?>>Apply Online Now</a>
+                     <a  class="btn btn-primary mb-3" href="<?=base_url('applyloan');?>">Apply Online Now</a>
                      <p class="text-dark fs-13">Easy Process. No Paperwork. Get Funded In One Hour</p>
                   </div>
                </div>
@@ -417,7 +414,7 @@
                </div>
                <div class="row">
                   <div class="offset-xl-2 col-xl-8 col-md-12 col-12 text-center">
-                     <a class="btn btn-primary" href="<?=base_url('applyloan');?>>Apply Online Now</a>
+                     <a class="btn btn-primary" href="<?=base_url('applyloan');?>">Apply Online Now</a>
                      <p class="text-dark fs-13 mt-3">Easy Process. No Paperwork. Get Funded In One Hour</p>
                   </div>
                </div>
@@ -589,14 +586,11 @@
  
 
 
-     
-{% endblock %}
 
-{% block JSInFile %}
-<script src="libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="libs/tiny-slider/dist/min/tiny-slider.js"></script>
+<script src="<?=base_url("libs/bootstrap/dist/js/bootstrap.bundle.min.js")?>"></script>
+<script src="<?=base_url("libs/tiny-slider/dist/min/tiny-slider.js")?>"></script>
 
-<script src="js/theme.min.js"></script>
+<script src="<?=base_url("js/theme.min.js")?>"></script>
 <script>
    jQuery("#carousel").owlCarousel({
      autoplay: true,

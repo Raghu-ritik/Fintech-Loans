@@ -13,6 +13,7 @@ class Home extends BaseController
     public function make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c): array
     {
         $csvFilePath = WRITEPATH . "../csv/Loan_".$Loan_Amount.".csv";
+       
     
         if ($pay_frequency == 3) {
             $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, 2);
@@ -54,13 +55,14 @@ class Home extends BaseController
                 $floanAmount =$row['Loan_Amount__c'];
                 $fpayFrequency =$row['DP_Primary_income_frequency__c'];
                 $ftotalRepayment =$row['Total_Repayment_Amount__c'];
-               
-                if($floanAmount == $Loan_Amount && $fpayFrequency == $pay_frequency && $ftotalRepayment >= $total_repayment_amount__c && $ftotalRepayment <= 660 ){
+                
+                if($floanAmount == $Loan_Amount && $fpayFrequency == $pay_frequency && $ftotalRepayment >= $total_repayment_amount__c && $ftotalRepayment <=  $max_repayment_amount){
                   
                     // the filtered data will push inside $data
                     $data[] = $row;
                 }
             }
+         
             if (!empty($data)) {
                 // Randomly select an index from the $data array
                 $randomIndex = array_rand($data);
@@ -71,6 +73,7 @@ class Home extends BaseController
                 // Return the random array
                 return $randomArray;
             } else {
+                
                 // Handle the case when no matching rows were found
                 return []; // Or any other appropriate value
             }
@@ -135,7 +138,7 @@ class Home extends BaseController
         }
     }
     public function analyzeLoan(): string{
-
+        try{
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $ReasonforLoan = $_POST['ReasonforLoan'];
             $more_information =$_POST['more_information'];
@@ -175,14 +178,15 @@ class Home extends BaseController
             // print("This is request.form",request.form)
             $extract_Random_record = $this -> make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c);
             unset($extract_Random_record['id']);
+            echo "here ";
+            print_r($extract_Random_record);
             // print_r($extract_Random_record);
             $extract_Random_record["Summary_Income__c"]         = $Annual_Gross_Income;
             $extract_Random_record["Summary_Expenses__c"]       = (int)$Total_expenses;
             $extract_Random_record["Loan_Amount__c"]            = (int)$Loan_Amount;
             $extract_Random_record["Total_Repayment_Amount__c"] = $total_repayment_amount__c;
             // echo "<pre>";
-            // print_r($extract_Random_record );
-            // die;
+       
             // echo strpos('this_date', 'date');
             foreach ($extract_Random_record as $key => $val) {
                 
@@ -194,7 +198,7 @@ class Home extends BaseController
                     $extract_Random_record[$key] = (int)$val;
                 }
             }
-            
+           
             $url = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/";
  
             
@@ -230,12 +234,16 @@ class Home extends BaseController
             print_r($response_from_salesforce_server);
             // die;
             if ($response_from_salesforce_server->success) {
-                header("Location: /ci4/creditsense", true, 302);
+                header("Location: /creditsense", true, 302);
                 exit; 
             }
                         print_r($_POST);
         }
-       return view("someissues");
+            return view("someissues");
+        }
+        catch(Exception $e) {
+            return view("someissues");
+        }
     }
 
     // function custom_json_encode($data) {

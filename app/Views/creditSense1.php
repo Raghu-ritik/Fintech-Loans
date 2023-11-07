@@ -3,8 +3,8 @@
 
 
 <div class="alignMiddle" id="BankSelect">
-<div  class="container">
-    <div class="page-header row">
+<div  class="container creditsense-container" >
+    <div class="page-header">
         <h2>Select  bank</h2>
     </div>
 
@@ -600,7 +600,7 @@
 </div>
 <!-- -------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
 <div class="alignMiddle" id="BankCredentials" style="display: none;">
-<div  class="container" >
+<div  class="container creditsense-container" >
     <div class="page-header col-12">
         <h2>Enter online banking details</h2>
     </div>
@@ -686,7 +686,7 @@
 
 <!-- ------------------ Terms and condition -------------------- -->
 <div class="alignMiddle" id="Terms-and-conditions-section" style="display: none;">
-<div class="container" >
+<div class="container creditsense-container" >
     <div id="Terms">
         <div class="page-header col-12">
             <h2>Terms &amp; Conditions</h2>
@@ -2567,7 +2567,7 @@
 </div>
 <!-- -------------------goverment banifits------------------------------------- -->
 <div class="alignMiddle" id="Q-Benefits-Gov" style="display: none;">
-<div class="container" >
+<div class="container creditsense-container" >
     <div id="Q-Benefits">
         <!-- If Centrelink Primary -->
         <div style="display: none;" id="receive-gov-benfit">
@@ -2630,7 +2630,7 @@
 </div>
 <!-- --------------------------------success upload completed --------------------------------------------------- -->
 <div class="alignMiddle" id="LoginStatus" style="display: none;">
-    <div class="container">
+    <div class="container creditsense-container">
         <div>
             <div class="page-header">
                 <h1 id="LoginStatusHeader" style="color: rgb(0, 168, 20);font-size: 38.5px;">Statement upload complete
@@ -2655,7 +2655,7 @@
 </div>
 <!-- -----------------------------------login pending------------------------------------------------ -->
 <div class="alignMiddle" id="LoginPending-Status" style="display: none;">
-    <div class="container">
+    <div class="container creditsense-container">
         <div class="page-header">
             <h1 id="LoginStatusHeader">Login pending</h1>
         </div>

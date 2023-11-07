@@ -19,12 +19,16 @@
           <p class="input-heading mb-0 border-bottom">
             Your Loan
           </p>
-
+          <div class="row">
+            <div class="col-md-12">
+            <span class="required required-2">All fields marked with an asterisk (*) are required.</span> 
+            </div>
+          </div>
           <div class="row p-3 pt-0">
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="ReasonForLoan">Reason for your loan 
-                  <span class="required">*</span>
+                <span class="required">*</span>
                 </label>
                 <select class="form-select" aria-label="Default select example" id="ReasonForLoan" name="ReasonforLoan">
                   <option value="Car Expenses" selected>Car Expenses</option>
@@ -53,13 +57,14 @@
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="Loan_Amount">Loan Amount Request</label>
+                <span class="required">*</span>
                 <select class="form-select" aria-label="Default select example" id="Loan_Amount"
                   name="Loan_Amount">
-                  <option >Open this select menu</option>
+                  <option value ="">Open this select menu</option>
                   <option value="500">500</option>
                   <option value="1000">1000</option>
                   <option value="1500">1500</option>
-                  <option value="2000" selected>2000</option>
+                  <option value="2000" >2000</option>
                   <option value="2500">2500</option>
                   <option value="3000">3000</option>
                   <option value="3500">3500</option>
@@ -68,6 +73,7 @@
                   <option value="5000">5000</option>
                 </select>
               </div>
+              <span class="error" id="Loan_AmountError">Please select loan amount</span>
             </div>
            
           </div>
@@ -75,7 +81,8 @@
             <div class="col-md-12 col-12">
               <div class="form-group mt-0">
                 <div class="cash-flex">
-                <label for="payFrequency_Weekly" class="me-4 mb-1">Pay frequency: </label>
+                <label for="payFrequency_Weekly" class="me-4 mb-1">Pay frequency  <span class="required">* </span>   : </label>
+               
                 <ul id="myTabs" class="nav nav-pills nav-justified" role="tablist" data-tabs="tabs">
                   <li class="mw-410">
                     <input type="radio" name="pay_frequency" class="btn btn-outline-primary" value="1"
@@ -99,13 +106,13 @@
                   </li>
                 </ul>
                 </div>
-                <div class="tab-content">
+                <!-- <div class="tab-content">
                   <div role="tabpanel" class="tab-pane fade in" id="weekly">Weekly Loan Payment Button active.</div>
                   <div role="tabpanel" class="tab-pane fade" id="fortnightly">Fortnightly Loan Payment Button active.</div>
                   <div role="tabpanel" class="tab-pane fade" id="monthly">Monthly Loan Payment Button active.</div>
-                </div>
+                </div> -->
               </div>
-              <span class="error" id="payFrequencyError">Please select any one payfrequency</span>
+              <span class="error" id="payFrequencyError">Please select any one pay frequency</span>
             </div>
 
 
@@ -184,11 +191,12 @@
             <div class="col-md-3 col-9">
               <div class="form-group mt-3">
                 <label for="MiddleName">First Name</label>
+                <span class="required">*</span>
                 <div class="input-group-prepend">
                   <input type="text" class="form-control " id="FirstName" placeholder="Enter First Name" name="FirstName">
                 </div>
               </div>
-              <span class ="error" id ="firstNameError">Please enter First Name</span>
+              <span class ="error" id ="firstNameError">Please enter first name</span>
             </div>
 
             <div class="col-md-4 col-12">
@@ -197,15 +205,16 @@
                 <input type="text" class="form-control" id="MiddleName" placeholder="Enter Middle Name"
                   name="MiddleName">
               </div>
-              <span class="error"  id="middleNameError">Please enter Middle Name</span>
+              <span class="error"  id="middleNameError">Please enter middle name</span>
             </div>
 
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="LastName">Last Name</label>
+                <span class="required">*</span>
                 <input type="text" class="form-control" id="LastName" placeholder="Enter Last Name" name="LastName">
               </div>
-              <span class="error"  id="lastNameError">Please Enter Last Name </span>
+              <span class="error"  id="lastNameError">Please enter last name </span>
             </div>
           </div>
 
@@ -213,11 +222,12 @@
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="DateOfBirth">Date of Birth</label>
+                <span class="required">*</span>
                 <input type="date" class="form-control" id="DateOfBirth" placeholder="Enter Date of Birth"
-                  name="DateOfBirth">
+                  name="DateOfBirth" >
               </div>
               <span class="error"  id="DateOfBirthError">
-                minimum required age is 18 years 
+                Minimum required age is 18 years 
               </span>
             </div>
 
@@ -225,19 +235,21 @@
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="MobileNumber">Mobile Number</label>
-                <input type="text" class="form-control" id="MobileNumber" placeholder="Enter Mobile Number"
-                  name="MobileNumber">
+                <span class="required">*</span>
+                <input type="number" class="form-control" id="MobileNumber" placeholder="Enter Mobile Number"
+                  name="MobileNumber" maxlength="10">
               </div>
-              <span class="error"  id="mobileNumberError">Pleasee enter 10 digits valid Mobile Number</span>
+              <span class="error"  id="mobileNumberError">Please enter 10 digits valid mobile number</span>
             </div>
 
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="workEmail">Email</label>
+                <span class="required">*</span>
                 <input type="email" class="form-control" id="Email" placeholder="Enter Email" name="Email">
 
               </div>
-              <span class="error"  id="emailError">Please enter Valid Email</span>
+              <span class="error"  id="emailError">Please enter valid email</span>
             </div>
           </div>
 
@@ -246,19 +258,21 @@
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="Password">Enter Password</label>
-                <input type="text" class="form-control" id="Password" placeholder="Choose Your Password"
+                <span class="required">*</span>
+                <input type="password" class="form-control" id="Password" placeholder="Choose Your Password"
                   name="Password">
               </div>
-              <span id="passwordError" class="error" >Use a combination of uppercase & lowercase with special symbols</span>
+              <span id="passwordError" class="error" >please create a password with a minimum of 8 characters, using a combination of uppercase and lowercase letters along with special symbols</span>
             </div>
 
             <div class="col-md-4 col-12">
               <div class="form-group mt-3">
                 <label for="confPassword">Confirm Password</label>
-                <input type="text" class="form-control" id="confPassword" placeholder="Renter Your Password"
+                <span class="required">*</span>
+                <input type="password" class="form-control" id="ConfPassword" placeholder="Renter Your Password"
                   name="confPassword">
               </div>
-              <span id="confPasswordError" class="error" >Password should be similar</span>
+              <span id="confPasswordError" class="error" >Password & confirm password should match</span>
             </div>
           </div>
         </div>
@@ -363,8 +377,8 @@
               
               <div class="col-md-4 col-12">
                 <div class="form-group mt-3">
-                  <label for="formGroupExampleInput">City</label>
-                  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="City" name="user_city">
+                  <label for="formInput_City">City</label>
+                  <input type="text" class="form-control" id="formInput_City" placeholder="City" name="user_city">
                 </div>
               </div>
               <div class="col-md-4 col-12">
@@ -380,7 +394,7 @@
               </div>
               <div class="col-md-4 col-12">
                 <div class="form-group mt-3">
-                  <label for="formGroupExampleInput">State</label>
+                  <label for="state">State</label>
                   <select class="form-select" aria-label="Default select example" id = "state" name="user_state">
                     <option value ="">Select </option>
                    </select>
@@ -391,7 +405,7 @@
                 <div class="form-group mt-3">
                   <label for="formGroupExampleInput">Address Postcode</label>
                   <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Address Postcode"
-                    name="user_address_postcode">
+                    name="user_address_postcode" maxlength="8">
                 </div>
 
               </div>
@@ -411,10 +425,11 @@
             <div class="col-md-6 col-12">
               <div class="form-group mt-3">
                 <label for="Employer_name">Employer Name (if benefits type Centrelink)</label>
+                <span class="required">*</span>
                 <input type="text" class="form-control" id="Employer_name" placeholder="Employer Name"
                   name="Employer_name">
               </div>
-              <span class="error"  id="Employment_StatusError">Please Enter Your Employer Name (You had chosen full-time employment) </span>
+              <span class="error"  id="Employment_StatusError">Please enter the name of your employer (you had chosen full-time work).  </span>
             </div>
           </div>
         </div>
@@ -430,9 +445,9 @@
           <div class="row p-3 pt-0">
             <div class="col-12">
               <div class="form-check mt-3">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked
+                <input class="form-check-input" type="checkbox" value="" id="IcanConfirm" onclick ="buttonDisable();"
                   name="IcanConfirm">
-                <label class="form-check-label mb-0" for="flexCheckChecked">
+                <label class="form-check-label mb-0" for="IcanConfirm">
                   I confirm that the information provided is accurate and I agree to the terms and conditions.
                 </label>
               </div> 
@@ -448,7 +463,7 @@
       <div class="row mb-3">
         <div class="col-12 p-0">
           <div class="d-flex justify-content-end">
-            <div> <button type="submit" class="btn btn-primary text-white d-inline br-4 bg-green m-0"> Next </button>
+            <div> <button type="submit" class="btn btn-primary text-white d-inline br-4 bg-green m-0" id ="nextbutton"> Next </button>
             </div>
           </div>
         </div>
@@ -463,209 +478,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
-<script>
-     $(document).ready(function () {
-
-$('input[name="pay_frequency"]').change(function() {
-  if (this.value === "1") { // Check if "Weekly" option is selected
-    // Remove all classes from the div with id "Commentary"
-    $('#weekly').removeClass();
-    $('#monthly').removeClass();
-
-    $('#fortnightly').removeClass();
-    $('#monthly').addClass('tab-pane fade');
-    $('#fortnightly').addClass('tab-pane fade');
-
-  }
-else  if (this.value === "2") { // Check if "Weekly" option is selected
-    // Remove all classes from the div with id "Commentary"
-    $('#weekly').removeClass();
-    $('#monthly').removeClass();
-    $('#fortnightly').removeClass();
-    $('#weekly').addClass('tab-pane fade in');
-    $('#monthly').addClass('tab-pane fade ');
-  }
-  else if (this.value === "3") { // Check if "Weekly" option is selected
-    // Remove all classes from the div with id "Commentary"
-    $('#weekly').removeClass();
-    $('#monthly').removeClass();
-    $('#fortnightly').removeClass();
-    $('#weekly').addClass('tab-pane fade in');
-    $('#fortnightly').addClass('tab-pane fade ');
-  }else{
-    $('#weekly').addClass('tab-pane fade in');
-    $('#fortnightly').addClass('tab-pane fade ');
-    $('#monthly').addClass('tab-pane fade ');
-  }
-});
-});
-function populateStates(country) {
-  $.getJSON("<?=base_url('JSON/country-state.json')?>", function(data) {
-    var states = data[country];
-    var selectState = $('#state');
-    selectState.empty();
-
-    for (var i = 0; i < states.length; i++) {
-      selectState.append($('<option>', {
-        value: states[i],
-        text: states[i]
-      }));
-    }
-  });
-}
-   
-
-function populateResonForLoan(ResonForLoan) {
-  $.getJSON("<?=base_url('JSON/Loan_more_info.json')?>", function(data) {
-    var Reason = data[ResonForLoan];
-    var selectMoreInfo = $('#more_information');
-    selectMoreInfo.empty();
-
-    for (var i = 0; i < Reason.length; i++) {
-      selectMoreInfo.append($('<option>', {
-        value: Reason[i],
-        text: Reason[i]
-      }));
-    }
-  });
-}
-
-// Listen for changes in the selected country
-$('#form_country').change(function() {
-  var selectedCountry = $(this).val();
-  populateStates(selectedCountry);
-});
-
-// Listen for changes in the ReasonForLoan
-$('#ReasonForLoan').change(function() {
-  var SelectedReson = $(this).val();
-  populateResonForLoan(SelectedReson);
-});
-
-  $("#firstNameError").hide();
-  $("#middleNameError").hide();
-  $("#lastNameError").hide();
-  $("#emailError").hide();
-  $("#mobileNumberError").hide();
-  $("#passwordError").hide();
-  $("#confPasswordError").hide();
-  $("#Employment_StatusError").hide();
-  $("#payFrequencyError").hide();
-  $("#IcanConfirmError").hide();
-  $("#DateOfBirthError").hide();
-  $("#nextbutton").prop("disabled", true);
-  
-  function buttonDisable (){
-    let element= $("#IcanConfirm");
-    if(!element.is(':checked')){
-      $("#nextbutton").prop("disabled", true);
-    }else{
-      $("#nextbutton").prop("disabled", false);
-    }
-  }
-
-  const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const NamePattern = /^[A-Za-z- ]+$/;
-  const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
-  const mobilePattern = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
-
-  function checkElement(id, errId, condition) {
-    let element = $(`#${id}`).val();
-
-    if (element && condition.test(element)) {
-      console.log("here hiding")
-      $(`#${errId}`).hide();
-      return true;
-    }
-    $(`#${errId}`).show();
-    return false;
-  }
-  function confpassword() {
-    let password = $("#Password").val();
-    let confPassword = $("#ConfPassword").val();
-    console.log(password, confPassword, "check==============>");
-    if (confPassword && password && confPassword === password) {
-      $("#confPasswordError").hide();
-      return true;
-    }
-    $("#confPasswordError").show();
-    return false;
-  }
-  function checkRadio(id, errid) {
-    let element = $(`#${id}`);
-  if (element && element.is(':checked')) {
-  $(`#${errid}`).hide();
-  return true;
-  }
-$ (`#${errid}`).show();
-return false;
-  }
-  function checkbox(id, errid) {
-  let element = $(`#${id}`);
-  if (element.is(':checked')) {
-    $(`#${errid}`).hide();
-    return true;
-  } else {
-    $(`#${errid}`).show();
-    return false;
-  }
-$(`#${errid}`).show();
-return false;
-  }
-  function checkemployeename() {
-    let Employment_Status = $("#Employment_Status").val();
-    let Employer_name = $("#Employer_name").val();
-    console.log(Employment_Status, Employer_name);
-    if (Employment_Status === 0 && Employer_name && Employer_name.length > 3) {
-      $("#Employment_StatusError").hide();
-      return true;
-    } else if (Employment_Status !== "Full-Time Employment") {
-      $("#Employment_StatusError").hide();
-      return true;
-    }
-    $("#Employment_StatusError").show();
-    return false;
-  }
-  function checkDateOfBirth(){
-    let DateOfBirth = $("#DateOfBirth").val();
-    console.log(DateOfBirth,"kkkkkk");
-   DateOfBirth= new Date(DateOfBirth);
-   let today =new Date();
-   if (DateOfBirth < today) {
-    $("#DateOfBirthError").hide();
-    return true;
-   }
-   $("#DateOfBirthError").show();
-
-    return false;
-  }
-
-  function validateSubmit() {
-    checkRadio("payFrequency","payFrequencyError") || 
-      checkElement("FirstName", "firstNameError", NamePattern) ||
-      checkElement("LastName", "lastNameError", NamePattern) ||
-      checkDateOfBirth()||
-      checkElement("Email", "emailError", emailPattern) ||
-      checkElement("MobileNumber", "mobileNumberError", mobilePattern) ||
-      checkElement("Password", "passwordError", passwordPattern) ||
-      confpassword() || checkemployeename() ||
-      checkbox("IcanConfirm","IcanConfirmError") ;
-      return   checkRadio("payFrequency","payFrequencyError") && 
-      checkElement("FirstName", "firstNameError", NamePattern) &&
-      checkElement("LastName", "lastNameError", NamePattern) &&
-      checkDateOfBirth()&&
-      checkElement("Email", "emailError", emailPattern) &&
-      checkElement("MobileNumber", "mobileNumberError", mobilePattern) &&
-      checkElement("Password", "passwordError", passwordPattern) &&
-      confpassword() && checkemployeename() &&
-      checkbox("IcanConfirm","IcanConfirmError") ;
-
-
-
-  }
-
-
-
-
-</script>
+<script src = "<?=base_url('js/validateLoan.js')?>"></script>
 <?php $this->endSection() ?>

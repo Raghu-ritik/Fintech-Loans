@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'Fintech_Loans',
+        'hostname'     => 'db5014727590.hosting-data.io',
+        'username'     => 'dbu779578',
+        'password'     => 'UI87uHJY65$%t',
+        'database'     => 'dbs12236891',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
