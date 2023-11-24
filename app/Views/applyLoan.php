@@ -262,7 +262,7 @@
                 <input type="password" class="form-control" id="Password" placeholder="Choose Your Password"
                   name="Password">
               </div>
-              <span id="passwordError" class="error" >please create a password with a minimum of 8 characters, using a combination of uppercase and lowercase letters along with special symbols</span>
+              <span id="passwordError" class="error" >Please create a password with a minimum of 8 characters, using a combination of uppercase and lowercase letters along with special symbols</span>
             </div>
 
             <div class="col-md-4 col-12">

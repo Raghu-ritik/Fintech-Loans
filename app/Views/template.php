@@ -68,7 +68,7 @@
                           </li>
                        </ul>
                        <form class="form-inline my-2 my-lg-0 d-flex">
-                          <a href="" class="btn btn-outline text-primary fs-14 d-inline br-4 bg-green m-0"> Login</a>
+                          <a href="<?=base_url('login')?>" class="btn btn-outline text-primary fs-14 d-inline br-4 bg-green m-0"> Login</a>
                           <a href="<?=base_url('applyloan')?>" class="btn btn-primary text-white fs-14 d-inline br-4 bg-green m-0 ms-3"> Apply Now</a>
                        </form>
                     </div>

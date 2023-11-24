@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'db5014727590.hosting-data.io',
-        'username'     => 'dbu779578',
-        'password'     => 'UI87uHJY65$%t',
-        'database'     => 'dbs12236891',
+        'hostname'     => 'localhost' ,//'db5014727590.hosting-data.io',
+        'username'     => 'root',//'dbu779578',
+        'password'     => '',//'UI87uHJY65$%t',
+        'database'     => 'flynx_loans',//'dbs12236891',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
