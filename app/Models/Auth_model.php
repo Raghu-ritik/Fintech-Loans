@@ -82,7 +82,8 @@ class Auth_model extends Model{
                 $msg = 'Logged in successfully.';
                 if ($user->user_type > 1) {
                     log_message("info", "User [$user->userID] logged in successfully");                    
-                    $response = array('status' => $status, 'msg' => $msg , 'role' => $user->user_type, 'user_id' => $user->id,  'username' => ucwords(implode(' ', array($user->first_name, $user->last_name))));
+                    $response = array('status' => $status, 'msg' => $msg , 'role' => $user->user_type, 'user_id' => $user->userID,  'username' => ucwords(implode(' ', array($user->first_name, $user->last_name))));
+                    $response['userDetail'] = $user;
                     if(isset($user->profile_picture) && $user->profile_picture){
                         $response['profile_picture']=base_url($this->config->item('assets_images')['path'].'/'.$user->profile_picture);
                     }
@@ -91,7 +92,7 @@ class Auth_model extends Model{
 
                 } else {
                     if ($type == 1) {
-                        return array('status' => $status, 'msg' => $msg, 'userdetail' => $user);
+                        return array('status' => $status, 'msg' => $msg, 'userDetail' => $user);
                     }
                 }
             } else {
@@ -107,7 +108,7 @@ class Auth_model extends Model{
                     }
                 }
                 $this->increase_login_attempts($user->userID);
-                log_message("info", "User [$user->id] $msg");
+                log_message("info", "User [$user->userID] $msg");
                 return array('status' => $status, 'msg' => $msg);
             }
         }
@@ -126,7 +127,7 @@ class Auth_model extends Model{
         if (!(session()->get('isLoggedIn'))) {
             return true;
         }
-        return false;
+        return true;
     }
 
 

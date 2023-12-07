@@ -1,0 +1,261 @@
+CRITICAL - 2023-12-01 10:41:38 --> syntax error, unexpected token "if"
+in APPPATH\Controllers\Home.php on line 160.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Controllers\\Home.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 3 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 4 SYSTEMPATH\CodeIgniter.php(900): class_exists('\\App\\Controllers\\Home', true)
+ 5 SYSTEMPATH\CodeIgniter.php(489): CodeIgniter\CodeIgniter->startController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 10:42:03 --> syntax error, unexpected identifier "First_name"
+in APPPATH\Controllers\User.php on line 64.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Controllers\\User.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\User')
+ 3 APPPATH\Controllers\Home.php(14): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\User')
+ 4 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 10:42:35 --> syntax error, unexpected identifier "add_user_address", expecting variable
+in APPPATH\Models\User_model.php on line 119.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\User_model')
+ 3 APPPATH\Models\Auth_model.php(19): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\User_model')
+ 4 APPPATH\Controllers\User.php(11): App\Models\Auth_model->__construct()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\User->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 10:43:08 --> Undefined array key "user_country"
+in APPPATH\Controllers\Home.php on line 202.
+ 1 APPPATH\Controllers\Home.php(202): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_country"', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Controllers\\Home.php', 202)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 11:18:45 --> A function with return type must return a value
+in APPPATH\Controllers\User.php on line 78.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-12-01 11:20:57 --> CodeIgniter\Validation\Validation::withRequest(): Argument #1 ($request) must be of type CodeIgniter\HTTP\RequestInterface, null given, called in C:\xampp\htdocs\flynx_loans\system\Controller.php on line 152
+in SYSTEMPATH\Validation\Validation.php on line 477.
+ 1 SYSTEMPATH\Controller.php(152): CodeIgniter\Validation\Validation->withRequest(null)
+ 2 APPPATH\Controllers\User.php(72): CodeIgniter\Controller->validate([...])
+ 3 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 11:24:23 --> Undefined variable $first_name
+in APPPATH\Models\User_model.php on line 131.
+ 1 APPPATH\Models\User_model.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $first_name', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php', 131)
+ 2 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 3 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 12:02:06 --> syntax error, unexpected token "=>", expecting ")"
+in APPPATH\Models\User_model.php on line 135.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\User_model')
+ 3 APPPATH\Models\Auth_model.php(19): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\User_model')
+ 4 APPPATH\Controllers\User.php(12): App\Models\Auth_model->__construct()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\User->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 12:07:48 --> syntax error, unexpected token ":"
+in APPPATH\Models\User_model.php on line 144.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\User_model')
+ 3 APPPATH\Models\Auth_model.php(19): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\User_model')
+ 4 APPPATH\Controllers\User.php(12): App\Models\Auth_model->__construct()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\User->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 12:08:46 --> syntax error, unexpected token ":"
+in APPPATH\Models\User_model.php on line 144.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\User_model')
+ 3 APPPATH\Models\Auth_model.php(19): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\User_model')
+ 4 APPPATH\Controllers\User.php(12): App\Models\Auth_model->__construct()
+ 5 APPPATH\Controllers\Home.php(14): App\Controllers\User->__construct()
+ 6 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 12:22:20 --> Undefined variable $userType
+in APPPATH\Models\User_model.php on line 134.
+ 1 APPPATH\Models\User_model.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userType', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php', 134)
+ 2 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 3 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 13:17:30 --> Undefined variable $data
+in APPPATH\Models\User_model.php on line 129.
+ 1 APPPATH\Models\User_model.php(129): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php', 129)
+ 2 APPPATH\Models\User_model.php(188): App\Models\User_model->add_user_address([...])
+ 3 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 4 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 13:17:46 --> mysqli_sql_exception: Unknown column 'country' in 'field list' in C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\flynx_loans\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(188): App\Models\User_model->add_user_address(Array)
+#6 C:\xampp\htdocs\flynx_loans\app\Controllers\User.php(82): App\Models\User_model->add_user(Array)
+#7 C:\xampp\htdocs\flynx_loans\app\Controllers\Home.php(255): App\Controllers\User->AddUser(Array)
+#8 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+#9 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\flynx_loans\index.php(80): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-01 13:17:46 --> Unknown column 'country' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `address` (`Street_name`, `Suburb`, `Pin_code`, `city`, `country`) VALUES (:Street_name:, :Suburb:, :Pin_code:, :city:, :country:)', [...], false)
+ 2 APPPATH\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Models\User_model.php(188): App\Models\User_model->add_user_address([...])
+ 4 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 5 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 13:18:22 --> mysqli_sql_exception: Unknown column 'Country' in 'field list' in C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\flynx_loans\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(188): App\Models\User_model->add_user_address(Array)
+#6 C:\xampp\htdocs\flynx_loans\app\Controllers\User.php(82): App\Models\User_model->add_user(Array)
+#7 C:\xampp\htdocs\flynx_loans\app\Controllers\Home.php(255): App\Controllers\User->AddUser(Array)
+#8 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+#9 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\flynx_loans\index.php(80): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-01 13:18:22 --> Unknown column 'Country' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `address` (`Street_name`, `Suburb`, `Pin_code`, `city`, `Country`) VALUES (:Street_name:, :Suburb:, :Pin_code:, :city:, :Country:)', [...], false)
+ 2 APPPATH\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Models\User_model.php(188): App\Models\User_model->add_user_address([...])
+ 4 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 5 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 13:19:20 --> mysqli_sql_exception: Unknown column 'Country' in 'field list' in C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `ad...', 0)
+#1 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ad...')
+#2 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ad...')
+#3 C:\xampp\htdocs\flynx_loans\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ad...', Array, false)
+#4 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(188): App\Models\User_model->add_user_address(Array)
+#6 C:\xampp\htdocs\flynx_loans\app\Controllers\User.php(82): App\Models\User_model->add_user(Array)
+#7 C:\xampp\htdocs\flynx_loans\app\Controllers\Home.php(255): App\Controllers\User->AddUser(Array)
+#8 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+#9 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#10 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\flynx_loans\index.php(80): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-12-01 13:19:20 --> Unknown column 'Country' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `address` (`Street_name`, `Suburb`, `Pin_code`, `city`, `Country`) VALUES (:Street_name:, :Suburb:, :Pin_code:, :city:, :Country:)', [...], false)
+ 2 APPPATH\Models\User_model.php(129): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Models\User_model.php(188): App\Models\User_model->add_user_address([...])
+ 4 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 5 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 6 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 7 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 13:23:41 --> Undefined variable $addressId
+in APPPATH\Models\User_model.php on line 188.
+ 1 APPPATH\Models\User_model.php(188): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $addressId', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\User_model.php', 188)
+ 2 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 3 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 4 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 5 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 16:03:32 --> mysqli_sql_exception: Unknown column 'Mobile_no' in 'field list' in C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\flynx_loans\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(189): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\flynx_loans\app\Controllers\User.php(82): App\Models\User_model->add_user(Array)
+#6 C:\xampp\htdocs\flynx_loans\app\Controllers\Home.php(255): App\Controllers\User->AddUser(Array)
+#7 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+#8 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\flynx_loans\index.php(80): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-01 16:03:32 --> Unknown column 'Mobile_no' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`User_type`, `First_name`, `Middle_name`, `Last_name`, `Date_of_birth`, `Mobile_no`, `Email`, `Password`, `Employment_status`, `Annual_Income`, `Total_expenses`, `Employer_name`, `Confirm_terms_and_conditions`, `updated_at`, `Created_on`, `Address`, `Username`, `Full_name`) VALUES (:User_type:, :First_name:, :Middle_name:, :Last_name:, :Date_of_birth:, :Mobile_no:, :Email:, :Password:, :Employment_status:, :Annual_Income:, :Total_expenses:, :Employer_name:, :Confirm_terms_and_conditions:, :updated_at:, :Created_on:, :Address:, :Username:, :Full_name:)', [...], false)
+ 2 APPPATH\Models\User_model.php(189): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 4 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-12-01 16:06:46 --> mysqli_sql_exception: Unknown column 'updated_at' in 'field list' in C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php:306
+Stack trace:
+#0 C:\xampp\htdocs\flynx_loans\system\Database\MySQLi\Connection.php(306): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(693): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\flynx_loans\system\Database\BaseConnection.php(607): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\flynx_loans\system\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\flynx_loans\app\Models\User_model.php(189): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\flynx_loans\app\Controllers\User.php(82): App\Models\User_model->add_user(Array)
+#6 C:\xampp\htdocs\flynx_loans\app\Controllers\Home.php(255): App\Controllers\User->AddUser(Array)
+#7 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+#8 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#9 C:\xampp\htdocs\flynx_loans\system\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\flynx_loans\index.php(80): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2023-12-01 16:06:46 --> Unknown column 'updated_at' in 'field list'
+in SYSTEMPATH\Database\BaseConnection.php on line 647.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2308): CodeIgniter\Database\BaseConnection->query('INSERT INTO `users` (`User_type`, `First_name`, `Middle_name`, `Last_name`, `Date_of_birth`, `Mobile_no`, `Email`, `Password`, `Employment_status`, `Annual_Income`, `Total_expenses`, `Employer_name`, `Confirm_terms_and_conditions`, `updated_at`, `Created_on`, `Address`, `Username`, `Full_name`) VALUES (:User_type:, :First_name:, :Middle_name:, :Last_name:, :Date_of_birth:, :Mobile_no:, :Email:, :Password:, :Employment_status:, :Annual_Income:, :Total_expenses:, :Employer_name:, :Confirm_terms_and_conditions:, :updated_at:, :Created_on:, :Address:, :Username:, :Full_name:)', [...], false)
+ 2 APPPATH\Models\User_model.php(189): CodeIgniter\Database\BaseBuilder->insert([...])
+ 3 APPPATH\Controllers\User.php(82): App\Models\User_model->add_user([...])
+ 4 APPPATH\Controllers\Home.php(255): App\Controllers\User->AddUser([...])
+ 5 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 6 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 16:52:08 --> syntax error, unexpected token "public"
+in APPPATH\Models\Loan_model.php on line 180.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\Loan_model.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Models\\Loan_model')
+ 3 APPPATH\Controllers\Home.php(16): CodeIgniter\Autoloader\Autoloader->loadClass('App\\Models\\Loan_model')
+ 4 SYSTEMPATH\CodeIgniter.php(914): App\Controllers\Home->__construct()
+ 5 SYSTEMPATH\CodeIgniter.php(493): CodeIgniter\CodeIgniter->createController()
+ 6 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-12-01 17:19:33 --> Attempt to read property "status" on array
+in APPPATH\Models\Loan_model.php on line 132.
+ 1 APPPATH\Models\Loan_model.php(132): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "status" on array', 'C:\\xampp\\htdocs\\flynx_loans\\app\\Models\\Loan_model.php', 132)
+ 2 APPPATH\Controllers\Home.php(268): App\Models\Loan_model->add_loans([...], [...])
+ 3 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\Home->analyzeLoan()
+ 4 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(80): CodeIgniter\CodeIgniter->run()

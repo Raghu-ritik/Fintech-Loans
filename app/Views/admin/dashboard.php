@@ -10,21 +10,21 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <img src="images/menu-left.png" alt="">
         </button>
-  
-        <a class="navbar-brand  text-uppercase text-dark-primary" href="#"><img src="images/money-bag.png" class="img-fluid" alt=""> <b>Fintech</b> Loans</a>
-
+        <a class="navbar-brand  text-uppercase text-dark-primary" href="<?php echo base_url() ?>"><img src="images/money-bag.png" class="img-fluid" alt=""> <b>Fintech</b> Loans</a>
        </div>
-  
-  
       <div class="navbar-nav ms-auto profile-none">
         <div class="d-flex align-items-center h-100">
-          <img src="images/user.svg" alt="">
+          <a href="<?php echo base_url("profile") ?>">
+            <img src="images/user.svg" alt="">
+          </a>
           <div class="phone-none">
             <span class="d-flex flex-column pl-2 ">
-              <p class="mb-0 text-white fs-16 fw-bolder">John Smith</p>
+              <p class="mb-0 text-white fs-16 fw-bolder">John Smith hre</p>
               <p class="mb-0 text-white fs-14 text-light">System Admin</p>
-          </span>
-      <span><img src="images/sign-out.png" class="img-fluid sign-out" alt=""></span>
+            </span>
+            <span>
+              <img src="images/sign-out.png" class="img-fluid sign-out" alt="">
+            </span>
           </div>
         </div>
     </div>
@@ -34,13 +34,13 @@
       <div class="collapse navbar-collapse lateral-left" id="bs-example-navbar-collapse-1">
      
         <div class="navbar-nav ms-auto">
-          <div class="d-flex align-items-center">
-            <img src="images/user.svg" class="pe-2" alt="">
+        <div class="d-flex align-items-center">
+              <a href="<?= base_url("profile") ?>" ><img src="images/user.svg" class="pe-2" alt=""></a>
               <span class="d-flex flex-column pl-2 phone-none">
-                  <p class="mb-0 text-white fs-16 fw-bolder">John Smith</p>
-                  <p class="mb-0 text-white fs-14 text-light">System Admin</p>
+                  <p class="mb-0 text-white fs-16 fw-bolder"><?= $data['login_user_detail']->username ?></p>
+                  <p class="mb-0 text-white fs-14 text-light"><?php if($data['login_user_detail']->user_type==99){echo "System Admin";}else{echo "Loan user";} ?></p>
               </span>
-          <span><img src="images/sign-out.png" class="img-fluid sign-out" alt=""></span>
+              <a href="<?= base_url("logout") ?>" ><span><img src="images/sign-out.png" class="img-fluid sign-out" alt=""></span></a>
     
           </div>
       </div>
@@ -57,31 +57,29 @@
         <div class="d-flex justify-content-between w-100">
           <div>
             <h3 class="text-primary mb-0">
-              New this week
+              All
             </h3>
             <p class="text-uppercase">opportunity</p>
           </div>
-          <div>
+          <div style="display:none;">
             <input class="form-control" type="search" placeholder="Search" aria-label="Search">
           </div>
         </div>
 
         
-          <table class="table table-striped dt-responsive datatable-list data-table" id="myDataTable"
-                        data-opts='{"sAjaxSource":"<?php echo base_url("/get_all_loans_opportunity") ?>","searching": false}'>
+          <table class="table table-striped dt-responsive datatable-list data-table" id="opportunityDataTable">
             <thead>
               <tr>
                   <th class="border-left nosort" width="5%">Id</th> 
-                  <th class="border-left nosort" width="5%">Opportunity name</th>
-                  <th class="border-left nosort" width="25%">Account name</th>
-                  <th class="border-left nosort" width="30%">Amount</th>
-                  <th class="nosort" width="25%">Close date</th>
-                  <th class="border-left nosort" width="30%">Opportunity Owner Alias</th>
-                  <th class="border-right nosort" width="15%">Created Date</th>
+                  <th class="border-left nosort" width="15%">Opportunity name</th>
+                  <th class="border-left nosort" width="15%">Account name</th>
+                  <th class="border-left nosort" width="15%">Amount</th>
+                  <th class="nosort" width="15%">Close date</th>
+                  <th class="border-left nosort" width="15%">Opportunity Owner Alias</th>
+                  <th class="border-right nosort" width="10%">Created Date</th>
+                  <th class="border-right nosort" width="10%">Actions</th>
               </tr>
             </thead>
-            <tbody>
-            </tbody>
           </table>
 
         

@@ -487,6 +487,10 @@ border: 1px solid #fd4e19 !important;
     color: #4caf50;
     font-size: 36px;
 }
+.NoAccess{
+    color: #ec0606;
+    font-size: 36px;
+}
 
 .Thank-msg {
     color: #333;

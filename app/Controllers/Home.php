@@ -2,12 +2,36 @@
 
 namespace App\Controllers;
 
+use App\Controllers\User;
+use App\Models\Loan_model;
+
 
 class Home extends BaseController
 {
+
+    
+    public function __construct() {
+        // parent::__construct();
+        $this->user_conroller = new User();
+        $this->loan = new Loan_model();
+        $this->session = session();
+      
+        /** add error delimiters * */
+        // $this->form_validation->set_error_delimiters('<label class="error">', '</label>');
+	}
+
+
+
+
+
     public function index(): string
     {
-        return view('home',['title' => 'Fintech Loans']);
+        $data = array();
+        $IsLoggedIn =session()->get('isLoggedIn'); 
+        if (isset($IsLoggedIn)){
+            $data['login_user_detail'] = session()->get('isLoggedIn');
+        }
+        return view('home',['title' => 'Fintech Loans','data'=>$data]);
     }
 
     public function make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c): array
@@ -24,7 +48,7 @@ class Home extends BaseController
         } elseif ($pay_frequency == 4) {
             $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, -1);
         }
-                if (file_exists($csvFilePath)) {
+        if (file_exists($csvFilePath)) {
             // Load the File helper
             $csvContent = file_get_contents($csvFilePath);
 
@@ -84,8 +108,33 @@ class Home extends BaseController
             return print( 'The CSV file does not exist.');
         }
     }
+
+    public function getStatesInfo()
+    {
+        $country_id = $_GET['country_id'];
+        $states_infos = $this->loan->get_all_states_info($country_id);
+        return json_encode([
+            'status' => 200,
+            'msg' => "states list is fetched successfully.",
+            'data' => $states_infos, 
+        ]);
+    }
+
+    public function getMoreInfoLoan()
+    {
+        $reason_for_loan = $_GET['reason_for_loan'];
+        $more_infos = $this->loan->get_more_info_for_loan_reason($reason_for_loan);
+        return json_encode([
+            'status' => 200,
+            'msg' => "more info for Loan Reson is fetched successfully.",
+            'data' => $more_infos, 
+        ]);
+    }
+
     public function applyLoan(): string{
-        return view('applyLoan',['title' =>'Apply Loan']);
+        $countries = $this->loan->get_all_countries();
+        $loan_reason = $this->loan->get_all_loan_reason();
+        return view('applyLoan',['title' =>'Apply Loan','loan_reason'=>$loan_reason,'countries'=>$countries]);
     }
     public function calculateRepayentAmout($LoanAmount, $payFrequency): string {
         // I have assumed an average interest rate of 20%
@@ -139,106 +188,133 @@ class Home extends BaseController
     }
     public function analyzeLoan(): string{
         try{
-        if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            $ReasonforLoan = $_POST['ReasonforLoan'];
-            $more_information =$_POST['more_information'];
-            $Loan_Amount = $_POST['Loan_Amount'];
-            $pay_frequency = (int)$_POST['pay_frequency'];
-            // $user_name_initials = $_POST['user_name_initials'];
-            $FirstName = $_POST['FirstName'];
-            $MiddleName = $_POST['MiddleName'];
-            $LastName = $_POST['LastName'];
+            $user = array();
+            $loans = array();
+            echo "<pre>";
 
-            $DateOfBirth = $_POST['DateOfBirth'];
-            $MobileNumber = (string)$_POST['MobileNumber'];
-            $userEmail = $_POST['Email'];
-            
-            $Password = $_POST['Password'];
-            $confPassword = $_POST['confPassword'];
-            # Employment Details
-            $Employment_Status = $_POST['Employment_Status'];
-            $Annual_Gross_Income = (int)$_POST['Annual_Gross_Income'];
-            # Expenses Details
-            $Total_expenses = $_POST['Total_expenses'];
-            # Confirm Your Contact Details
-            $user_street_name = $_POST['user_street_name'];
-            $user_address_suburb = $_POST['user_address_suburb'];
-            $user_address_postcode = $_POST['user_address_postcode'];
-            
-            $user_city = $_POST['user_city'];
-            $user_state = $_POST['user_state'];
-            # Your Employer Information
-            $Employer_name = $_POST['Employer_name'];
-            # I Confirm
-            $IcanConfirm = $_POST['IcanConfirm'];
+            if($_SERVER['REQUEST_METHOD'] == 'POST'){
+                $ReasonforLoan = $_POST['ReasonforLoan'];
+                $loans['Reason_for_loan'] = $ReasonforLoan; 
+                $more_information =$_POST['more_information'];
+                $loans['More_info'] = $more_information; 
+                $Loan_Amount = $_POST['Loan_Amount'];
+                $loans['Loan_amount'] = $more_information; 
+                $pay_frequency = (int)$_POST['pay_frequency'];
+                $loans['Pay_frequency'] = $pay_frequency;
 
-            $an_id = sprintf('%018x', random_int(0, (int)(pow(16, 18) - 1)));
-            $Loan_Amount = (int)$Loan_Amount;
-            $total_repayment_amount__c = $this -> calculateRepayentAmout($Loan_Amount,$pay_frequency); 
-            // print("This is request.form",request.form)
-            $extract_Random_record = $this -> make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c);
-            unset($extract_Random_record['id']);
-            echo "here ";
-            print_r($extract_Random_record);
-            // print_r($extract_Random_record);
-            $extract_Random_record["Summary_Income__c"]         = $Annual_Gross_Income;
-            $extract_Random_record["Summary_Expenses__c"]       = (int)$Total_expenses;
-            $extract_Random_record["Loan_Amount__c"]            = (int)$Loan_Amount;
-            $extract_Random_record["Total_Repayment_Amount__c"] = $total_repayment_amount__c;
-            // echo "<pre>";
-       
-            // echo strpos('this_date', 'date');
-            foreach ($extract_Random_record as $key => $val) {
+                // $user_name_initials = $_POST['user_name_initials'];
+                $FirstName = $_POST['FirstName'];
+                $user['First_name']= $FirstName;
+                $MiddleName = $_POST['MiddleName'];
+                $user['Middle_name']= $FirstName;
+                $LastName = $_POST['LastName'];
+                $user['Last_name']= $FirstName;
+
+
+                $DateOfBirth = $_POST['DateOfBirth'];
+                $user['Date_of_birth'] = $DateOfBirth;
+                $MobileNumber = (string)$_POST['MobileNumber'];
+                $user['Mobile_no'] = $MobileNumber;
+                $userEmail = $_POST['Email'];
+                $user['Email'] = $userEmail;
                 
-                if (strpos($key, 'date') && $val ==0) {
-                    
-                    $extract_Random_record[$key] = '';
+                $Password = $_POST['Password'];
+                $user['Password'] = $Password;
+                $confPassword = $_POST['confPassword'];
+                # Employment Details
+                $Employment_Status = $_POST['Employment_Status'];
+                $user['Employment_status'] = $Employment_Status;
+                $Annual_Gross_Income = (int)$_POST['Annual_Gross_Income'];
+                $user['Annual_Income'] = $Annual_Gross_Income;
+                # Expenses Details
+                $Total_expenses = $_POST['Total_expenses'];
+                $user['Total_expenses'] = $Total_expenses;
+                $loans['Total_expenses'] = $Total_expenses;
+                # Confirm Your Contact Details
+                $user_street_name = $_POST['user_street_name'];
+                $user['Street_name'] = $user_street_name;
+                $user_address_suburb = $_POST['user_address_suburb'];
+                $user['Suburb'] = $user_address_suburb;
+                $user_address_postcode = $_POST['user_address_postcode'];
+                $user['Pin_code'] = $user_address_postcode;
+                
+                $user_city = $_POST['user_city'];
+                $user['city'] = $user_city;
+                $user_country = $_POST['user_country'];
+                $user['country'] = $user_country;
+                $user_state = $_POST['user_state'];
+                $user['State'] = $user_state;
+                # Your Employer Information
+                $Employer_name = $_POST['Employer_name'];
+                $user['Employer_name'] = $Employer_name;
+                $loans['Employer_name'] = $Employer_name;
+                # I Confirm
+                $IcanConfirm = $_POST['IcanConfirm'];
+                $user['Confirm_terms_and_conditions'] = $IcanConfirm;
+                $loans['Confirm_t_and_c'] = $IcanConfirm;
 
-                } elseif (is_float($val) ) {
-                    $extract_Random_record[$key] = (int)$val;
+                
+                $user['User_type'] = 1;
+                $an_id = sprintf('%018x', random_int(0, (int)(pow(16, 18) - 1)));
+                $Loan_Amount = (int)$Loan_Amount;
+                $total_repayment_amount__c = $this -> calculateRepayentAmout($Loan_Amount,$pay_frequency); 
+                // print("This is request.form",request.form)
+                $extract_Random_record = $this -> make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c);
+                unset($extract_Random_record['id']);
+                // print_r($extract_Random_record);
+                // print_r($extract_Random_record);
+                $extract_Random_record["Summary_Income__c"]         = $Annual_Gross_Income;
+                $extract_Random_record["Summary_Expenses__c"]       = (int)$Total_expenses;
+                $extract_Random_record["Loan_Amount__c"]            = (int)$Loan_Amount;
+                $extract_Random_record["Total_Repayment_Amount__c"] = $total_repayment_amount__c;
+                // echo "<pre>";
+                // echo strpos('this_date', 'date');
+                foreach ($extract_Random_record as $key => $val) {
+                    
+                    if (strpos($key, 'date') && $val ==0) {
+                        
+                        $extract_Random_record[$key] = '';
+                        
+                    } elseif (is_float($val) ) {
+                        $extract_Random_record[$key] = (int)$val;
+                    }
+                }
+                $opportunitySense = $extract_Random_record; //If Needed we can shift this line before the loop to prevent the faulty dates addition.
+                $url = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/";
+                $payload = [
+                    "first_name" => $FirstName,
+                    "last_name" => $LastName,
+                    "email" => $userEmail,
+                    "mobile"=> $MobileNumber,
+                    "pay_frequency" => $this -> pay_frequency_convert($pay_frequency),
+                    "loan_reason" => $ReasonforLoan,
+                    "amount" => $Loan_Amount,
+                    "opp_fields" => $extract_Random_record
+                ];
+                $jsonPayload = json_encode($payload,JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE);
+                $this->loan->add_loans($loans,$user,$opportunitySense);
+                
+
+                // Initialize cURL session
+                $ch = curl_init($url);
+
+                // Set cURL options
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonPayload);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                    'Content-Type: application/json',
+                ]);
+
+                // Execute cURL session and get the response
+                $response_from_salesforce_server = json_decode( curl_exec($ch));
+                print_r($response_from_salesforce_server);
+                die;
+                if ($response_from_salesforce_server->success) {
+                    header("Location: /creditsense", true, 302);
+                    exit; 
                 }
             }
-           
-            $url = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/";
- 
-            
-                $payload = [
-                "first_name" => $FirstName,
-                "last_name" => $LastName,
-                "email" => $userEmail,
-                "mobile"=> $MobileNumber,
-                "pay_frequency" => $this -> pay_frequency_convert($pay_frequency),
-                "loan_reason" => $ReasonforLoan,
-                "amount" => $Loan_Amount,
-                "opp_fields" => $extract_Random_record
-            ];
-            $jsonPayload = json_encode($payload,JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE);
-           
-        
-
-            // Initialize cURL session
-            $ch = curl_init($url);
-
-            // Set cURL options
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonPayload);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, [
-                'Content-Type: application/json',
-            ]);
-
-            // Execute cURL session and get the response
-            // die;
-            $response_from_salesforce_server = json_decode( curl_exec($ch));
-            echo "<pre>";
-            print_r($response_from_salesforce_server);
-            // die;
-            if ($response_from_salesforce_server->success) {
-                header("Location: /creditsense", true, 302);
-                exit; 
-            }
-                        print_r($_POST);
-        }
             return view("someissues");
         }
         catch(Exception $e) {

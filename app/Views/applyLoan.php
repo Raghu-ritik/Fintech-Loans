@@ -30,11 +30,13 @@
                 <label for="ReasonForLoan">Reason for your loan 
                 <span class="required">*</span>
                 </label>
+                
+                
+                
                 <select class="form-select" aria-label="Default select example" id="ReasonForLoan" name="ReasonforLoan">
-                  <option value="Car Expenses" selected>Car Expenses</option>
-                  <option value="Insurance">Insurance</option>
-                  <option value="Medical Expenses">Medical Expenses</option>
-                  <option value="Product Purchases">Product Purchases</option>
+                  <?php foreach ($loan_reason as $key => $val) {?>
+                    <option value="<?php echo $val->Loan_reason_id; ?>" ><?php echo $val->Loan_reason_subject;  ?></option>
+                  <?php } ?>
                 </select>
               </div>
 
@@ -46,10 +48,7 @@
                 <select class="form-select" aria-label="Default select example" id="more_information"
                   name="more_information">
                   <option selected>Open this select menu</option>
-                  <option value="Vehicle Registration">Vehicle Registration</option>
-                  <option value="Vehicle Insurance">Vehicle Insurance</option>
-                  <option value="Vehicle Repairs">Vehicle Repairs</option>
-                  <option value="Vehicle Maintenance (eg Service)">Vehicle Maintenance (eg Service)</option>
+
                 </select>
               </div>
 
@@ -384,11 +383,11 @@
               <div class="col-md-4 col-12">
                 <div class="form-group mt-3">
                   <label for="form_country">Country</label>
-                  <select class="form-select" aria-label="Default select example" id="form_country" name="user_state">
+                  <select class="form-select" aria-label="Default select example" id="form_country" name="user_country">
                     <option value="">Select Country</option>
-                    <option value="USA">USA</option>
-                    <option value="Australia">Australia</option>
-
+                    <?php foreach ($countries as $key => $val) {?>
+                      <option value="<?php echo $val->country_id; ?>" ><?php echo $val->country_name;  ?></option>
+                    <?php } ?>
                   </select>
                 </div>
               </div>

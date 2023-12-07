@@ -76,7 +76,7 @@ class Auth extends BaseConfig {
     public $max_password_length  = 20;// Maximum Allowed Length of Password
     public $track_login_attempts  = TRUE;// Track the number of failed login attempts for each user or ip.
     // Track login attempts by IP Address, if FALSE will track based on identity. (Default: TRUE)
-    public $maximum_login_attempts  = 5;                   // The maximum number of failed login attempts.
+    public $maximum_login_attempts  = 15;                   // The maximum number of failed login attempts.
     /* The number of seconds to lockout an account due to exceeded attempts
          You should not use a value below 60 (1 minute) */
     public $forgotPasswordExpiration  = 24;// The number of milliseconds after which a forgot password request will expire. If set to 0, forgot password requests will not expire.

@@ -18,34 +18,38 @@ set_max_date()
 
 
 function populateStates(country) {
-    $.getJSON("<?=base_url('JSON/country-state.json')?>", function (data) {
-        var states = data[country];
-        var selectState = $('#state');
-        selectState.empty();
 
-        for (var i = 0; i < states.length; i++) {
-            selectState.append($('<option>', {
-                value: states[i],
-                text: states[i]
-            }));
-        }
-    });
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+            let decoded_data =JSON.parse(this.responseText);
+            let options=`<option value="">Select State</option>`;
+            decoded_data.data.forEach(element => {
+                options += `<option value="${element.state_id}"> ${element.state_name} </option>`
+            });
+            document.getElementById("state").innerHTML = options;
+      }
+    };
+    xhttp.open("GET", `getStatesInfo?country_id=${country}`, true);
+    xhttp.send();
+
 }
 
 
 function populateResonForLoan(ResonForLoan) {
-    $.getJSON("<?=base_url('JSON/Loan_more_info.json')?>", function (data) {
-        var Reason = data[ResonForLoan];
-        var selectMoreInfo = $('#more_information');
-        selectMoreInfo.empty();
-
-        for (var i = 0; i < Reason.length; i++) {
-            selectMoreInfo.append($('<option>', {
-                value: Reason[i],
-                text: Reason[i]
-            }));
-        }
-    });
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+            let decoded_data =JSON.parse(this.responseText);
+            let options=`<option value="">Select more info</option>`;
+            decoded_data.data.forEach(element => {
+                options += `<option value="${element.more_info_id}"> ${element.more_info_subject} </option>`
+            });
+            document.getElementById("more_information").innerHTML = options;
+      }
+    };
+    xhttp.open("GET", `getMoreInfoLoan?reason_for_loan=${ResonForLoan}`, true);
+    xhttp.send();
 }
 
 // Listen for changes in the selected country

@@ -68,7 +68,13 @@
                           </li>
                        </ul>
                        <form class="form-inline my-2 my-lg-0 d-flex">
-                          <a href="<?=base_url('login')?>" class="btn btn-outline text-primary fs-14 d-inline br-4 bg-green m-0"> Login</a>
+                       <div class="d-flex align-items-center">
+            
+                           <?php if(isset($data['login_user_detail']->user_type) && $data['login_user_detail']->user_type==99){ ?>
+                                 <a href="<?=base_url('dashboard')?>" class="btn btn-outline text-primary fs-14 d-inline br-4 bg-green m-0"> Dashboard</a>
+                              <?php }else{ ?>
+                                 <a href="<?=base_url('login')?>" class="btn btn-outline text-primary fs-14 d-inline br-4 bg-green m-0"> Login</a>
+                              <?php } ?>
                           <a href="<?=base_url('applyloan')?>" class="btn btn-primary text-white fs-14 d-inline br-4 bg-green m-0 ms-3"> Apply Now</a>
                        </form>
                     </div>

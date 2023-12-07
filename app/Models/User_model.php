@@ -12,7 +12,7 @@ class User_model extends Model
     public function __construct()
     {
         parent::__construct();
-        $this->tables = array('users' => 'users','disorder'=>'disorder','dietitians'=>'dietitians','family_profiles'=>'family_profiles','customers'=>'customers');
+        $this->tables = array('users' => 'users','address'=>'address','customers'=>'customers');
         $this->db_model = new Db_model();
     }
 
@@ -49,10 +49,9 @@ class User_model extends Model
                         $val->first_name = $val->first_name ? ($val->first_name) : "";
                         $val->last_name = $val->last_name   ? ($val->last_name)  : "";
                         $val->email = $val->email           ? ($val->email)      : "";
-                        $val->phone_number = $val->phone_number ? convert_phone_number_formate( ($val->phone_number) ): "";
+                        // $val->phone_number = $val->phone_number ? convert_phone_number_formate( ($val->phone_number) ): "";
                         $val->username = $val->username     ? ($val->username)   : "";
                         $val->profile_picture = $val->profile_picture  ? $val->profile_picture : "";
-                        $val->language = $val->language     ? $val->language     : "";
                         $flagFound = true;
                         $userDetail = $val;
                         break;
@@ -68,8 +67,8 @@ class User_model extends Model
         $userDetails = $this->db
             ->table("users u")
             ->select('userID, username as username, first_name, last_name, 
-                        email as email, is_active as is_active, is_authorized,user_type,
-                        profile_picture as 	profile_picture, login_attempts, updated_on as Updated_on')
+                        email as email, is_active as is_active, is_authorized,user_type,Date_of_birth as Date_of_birth,Mobile_no as phone_number, 
+                        Employer_name, profile_picture as 	profile_picture, login_attempts, updated_on as Updated_on')
             ->where("userID",$user_id)
             ->get()
             ->getResult();
@@ -88,10 +87,9 @@ class User_model extends Model
                             $val->first_name = $val->first_name ? ($val->first_name) : "";
                             $val->last_name = $val->last_name   ? ($val->last_name)  : "";
                             $val->email = $val->email           ? ($val->email)      : "";
-                            $val->phone_number = $val->phone_number ? convert_phone_number_formate( ($val->phone_number) ): "";
+                            $val->phone_number = isset($val->phone_number) ? ( ($val->phone_number) ): "";
                             $val->username = $val->username     ? ($val->username)   : "";
                             $val->profile_picture = $val->profile_picture  ? $val->profile_picture : "";
-                            $val->language = $val->language     ? $val->language     : "";
                             $flagFound = true;
                             $userDetail = $val;
                             break;
@@ -104,90 +102,149 @@ class User_model extends Model
         
     }
 
+    public function get_all_titles(){
+        $titleDetails = $this->db
+            ->table("user_title ut")
+            ->select('Title_id, Title_name')
+            ->get()
+            ->getResult();
+        $titleDetail = [];
+        if (!empty($userDetails)) {
+            $titleDetail = $titleDetails;
+        }
+        return $titleDetail; 
+    }
+
+
+    public function add_user_address($params=[]){
+        extract($params);
+        $address = [];
+        if (isset($Pin_code)){
+            isset($Street_name)   ? ($address["Street_name"] = $Street_name)   : "";
+            isset($Suburb)        ? ($address["Suburb"] = $Suburb)             : "";
+            isset($Pin_code)      ? ($address["Pin_code"] = $Pin_code)         : "";
+            isset($city)          ? ($address["city"] = $city)                 : "";
+            isset($country)       ? ($address["County"] = $country)           : "";
+            
+            $this->db->table("address")->insert($address);
+        
+            return $this->db->insertID();
+        }
+        // INSERT INTO `address`(`Address_id`, `Street_name`, `Suburb`, `City`, `County`, `State`, `Pin_code`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
+    }
+
+    public function add_user($params=[]){
+        extract($params);
+        $response = [
+            "status" => "error",
+            "msg" => "User not added successfully",
+        ];
+        $data = [];
+        $address = [];
+        // return [
+        //     "status"     => "success",
+        //     "added_user" => 3,
+        //     "msg"        => "User added successfully",
+        // ];
+        if (isset($User_type)) {
+            isset($User_type)                   ? ($data["User_type"] = $User_type)                   : "";
+            isset($First_name)                  ? ($data["First_name"] =  $First_name)                : "";
+            isset($Middle_name)                 ? ($data["Middle_name"] =  $Middle_name)              : "";
+            isset($Last_name)                   ? ($data["Last_name"] =  $Last_name)                  : "";
+            isset($Date_of_birth)               ? ($data["Date_of_birth"] =  $Date_of_birth)          : "";
+            isset($Mobile_no)                   ? ($data["Mobile_no"] =  $Mobile_no)                  : "";
+            isset($Email)                       ? ($data["Email"] =  $Email)                          : "";
+            isset($Password)                    ? ($data["Password"] =  $Password)                    : "";
+            isset($Employment_status)           ? ($data["Employment_status"] =  $Employment_status)  : "";
+            isset($Annual_Income)               ? ($data["Annual_Income"] =  $Annual_Income)                    : "";
+            isset($Total_expenses)              ? ($data["Total_expenses"] =  $Total_expenses)                  : "";
+            isset($Employer_name)               ? ($data["Employer_name"] =  $Employer_name)                    : "";
+            isset($Confirm_terms_and_conditions)? ($data["Confirm_terms_and_conditions"] =  $Confirm_terms_and_conditions)    : "";
+            
+            isset($Street_name)                 ? ($address["Street_name"] = $Street_name)          : "";
+            isset($Suburb)                      ? ($address["Suburb"] = $Suburb)                    : "";
+            isset($Pin_code)                    ? ($address["Pin_code"] = $Pin_code)                : "";
+            isset($city)                        ? ($address["city"] = $city)                        : "";
+            isset($country)                     ? ($address["country"] = $country)                  : "";
+            
+            $data["Updated_on"] = date("Y-m-d H:i:s");
+
+            
+            if (isset($user_id) && $user_id != "") {
+                $this->db
+                ->table("users")
+                ->where("id", $user_id)
+                ->update($data);
+                log_message(
+                    "info",
+                    "User Id[" . $user_id . "] account updated successfully"
+                );
+                $response = [
+                    "status" => "success",
+                    "msg" => "User Updated successfully",
+                ];
+            } else {
+                
+                $data["Created_on"] = date("Y-m-d H:i:s");
+                $addressId  = $this->add_user_address($address);
+                $data["Address"] = $addressId;
+                $data["Username"]= $First_name ." ".$Last_name;
+                $data["Full_name"] = $First_name . " ". $Middle_name." ".$Last_name;
+                $this->db->table("users")->insert($data);
+                $insertId = $this->db->insertID();
+                log_message(
+                    "info",
+                    "User Id[" . $insertId . "] account created successfully"
+                );
+            }
+            if (isset($insertId) && $insertId) {
+                return [
+                    "status" => "success",
+                    "inserted_user" => $insertId,
+                    "msg"    => "User added successfully",
+                ];
+            }
+        }
+    }
+
+
     /**
      * @desc get single user detail
      * @param type $params
      * @return array
      */
-    public function get_detail($user_id,$is_only_diet_details=false) {
-        // $info_array = array('where' => array('id' => $user_id), 'table' => $this->tables
-        // ['users']);
-        $info_array['where'] = array('id' => $user_id);
-        $info_array['table'] = $this->tables['users'];
-		$info_array['fields'] = 'calories,protein,carbohydrate,fat,formula,formula_unit,disorder_id,glutamic,glycine,alanine,arginine,lysine,proline,is_mute';
-		if(!$is_only_diet_details){
-            $info_array['fields'] .= ',id,username,email,first_name,last_name,gender,profile_picture,dob,is_active,is_authorized,user_type,phone_number,street_address,city,state,country,zip,height_feet,height_inch,height_cm,weight_lbs,weight_oz,weight_kg,login_attempts,updated_at,patient_id,subject_id,dietitian_id,timezone_id,is_research_participant,is_mute';
-		} 
+    public function update_authorizarion_detail($params=[]) {
+        extract($params);
+        $response = [
+            "status" => "error",
+            "msg" => "User not updated successfully",
+        ];
+        $data = [];
+        $address = [];
+        if (isset($user_id)) {
+            // isset($user_id)                     ? ($data["userID"] = $user_id)                             : "";
+            isset($Is_authorized)               ? ($data["Is_authorized"] =  $Is_authorized)                : "";
+            isset($Login_attempts)              ? ($data["Login_attempts"] =  $Login_attempts)              : "";
+            isset($Is_active)                   ? ($data["Is_active"] =  $Is_active)                        : "";  
+            
+            $data["Updated_on"] = date("Y-m-d H:i:s");
 
-        // getting user account details
-        $result = $this->db_model->get_data($info_array);
-        if ($result['result']) {
-			$userdetails = $result['result'][0];
-			if($is_only_diet_details){
-				!$userdetails['calories'] && ($userdetails['calories']=2500);
-				!$userdetails['protein'] && ($userdetails['protein']=30);
-				!$userdetails['carbohydrate'] && ($userdetails['carbohydrate']=369);
-				!$userdetails['fat'] && ($userdetails['fat']=100);
-				!$userdetails['formula'] && ($userdetails['formula']=30);
-				$userdetails['disorder']=$this->db->select('name')->where('id',$userdetails['disorder_id'])->get($this->tables['disorder'])->row()->name;
-				$userdetails['is_citrin_deficiency']=stripos($userdetails['disorder'],'citrin')!==FALSE; // check if the participant has citrin deficiency
-			} else {
-				$userdetails['username'] = aes_256_decrypt($userdetails['username']);
-				$userdetails['first_name'] = aes_256_decrypt($userdetails['first_name']);
-				$userdetails['last_name'] = aes_256_decrypt($userdetails['last_name']);
-				$userdetails['fullname'] = ucwords($userdetails['first_name'] . ' ' . $userdetails['last_name']);
-				$userdetails['email'] = aes_256_decrypt($userdetails['email']);
-				$userdetails['phone_number'] = aes_256_decrypt($userdetails['phone_number']);
-				$userdetails['street_address'] = aes_256_decrypt($userdetails['street_address']);
-				$userdetails['city'] = aes_256_decrypt($userdetails['city']);
-				$userdetails['zip'] = aes_256_decrypt($userdetails['zip']);
-				$userdetails['state'] = aes_256_decrypt($userdetails['state']);
-				$userdetails['country'] = aes_256_decrypt($userdetails['country']);
-
-				$userdetails['dietitian_first_name'] = '';
-				$userdetails['dietitian_last_name'] = '';
-				$userdetails['dietitian_email'] = '';
-                $userdetails['dietitian_phone_number'] = '';
-                
-				if($userdetails['profile_picture']){
-					$userdetails['profile_picture'] = base_url($this->config->item('assets_images')['path'].'/'.aes_256_decrypt($userdetails['profile_picture']));
-				}
-
-				$userdetails['dob'] =  date("m/d/Y", strtotime(aes_256_decrypt($userdetails['dob'])));
-				$userarr = [2 => 'Participants', 3 => 'Admin-Dietitian', 4 => 'Member-Dietitian',5 => 'Account Admin', 6 => 'Researcher', 7 => 'Biostats', 8 => 'Trial Manager', 9 => 'Dietitian'];
-				$userdetails['role'] = $userarr[$userdetails['user_type']];
-                
-                //Try to get dietitian info
-                //HHU 07162019 for july release, we just need to keep the dietitian info from participant if any. So get it from here first
-                $d_array = array('where' => array('p_user_id' => $user_id), 'table' => $this->tables['dietitians']);
-                $d_result = $this->db_model->get_data($d_array);
-                $found = false;
-                if ( $d_result['result'] ) {
-                    $d_details = $d_result['result'][0];
-                    !empty($d_details['first_name']) && $userdetails['dietitian_first_name'] = aes_256_decrypt($d_details['first_name']);
-                    !empty($d_details['last_name']) && $userdetails['dietitian_last_name'] = aes_256_decrypt($d_details['last_name']);
-                    !empty($d_details['email']) && $userdetails['dietitian_email'] = aes_256_decrypt($d_details['email']);
-                    !empty($d_details['phone_number']) && $userdetails['dietitian_phone_number'] = aes_256_decrypt($d_details['phone_number']);
-                    $found = true;
-                }
-                
-                //HHU 07162019 get dietitian info using dietitian id if not null since some of them already links to dietitian id
-                if ( !$found && isset($userdetails['dietitian_id']) && !empty($userdetails['dietitian_id']) ) {
-                    $d_array = array('where' => array('id' => $userdetails['dietitian_id']), 'table' => $this->tables['users']);
-                    $d_result = $this->db_model->get_data($d_array);
-                    if ( $d_result['result'] ) {
-                        $d_details = $d_result['result'][0];
-                        !empty($d_details['first_name']) && $userdetails['dietitian_first_name'] = aes_256_decrypt($d_details['first_name']);
-                        !empty($d_details['last_name']) && $userdetails['dietitian_last_name'] = aes_256_decrypt($d_details['last_name']);
-                        !empty($d_details['email']) && $userdetails['dietitian_email'] = aes_256_decrypt($d_details['email']);
-                        !empty($d_details['phone_number']) && $userdetails['dietitian_phone_number'] = aes_256_decrypt($d_details['phone_number']);
-                    }
-                }
-			}
-            return $userdetails;
-		}
-		
-		return false;
+            if (isset($user_id) && $user_id != "") {
+                $this->db
+                ->table("users")
+                ->where("userId", $user_id)
+                ->update($data);
+                log_message(
+                    "info",
+                    "User Id[" . $user_id . "] account updated successfully"
+                );
+                $response = [
+                    "status" => "success",
+                    "msg" => "User Updated successfully",
+                ];
+            }
+        }
+        return $response;
     }
     
     /**

@@ -73,11 +73,11 @@
 
 # BEGIN wecanconnect redirection rules
 # Permanent URL redirect - http://stackoverflow.com/a/4307999/1817690
-RedirectMatch 301 ^/index.php/(.*) /$1
+RedirectMatch 301 ^/flynx_loans/index.php/(.*) /flynx_loans/$1
 
 <IfModule mod_rewrite.c>
     RewriteEngine on
-    RewriteBase /
+    RewriteBase /flynx_loans/
     RewriteRule ^(.*\/)?w3tc_rewrite_test$ $1?w3tc_rewrite_test=1 [L]
     RewriteCond %{HTTP:Accept-Encoding} gzip
     RewriteCond %{HTTP:Content-Encoding} gzip

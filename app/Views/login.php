@@ -14,7 +14,6 @@
            <form method="POST" action="make_login" >
              <input class="w-100 form-control mb-3" type="text" id="username" name="email" placeholder="Enter your username">
              <input class="w-100 mb-3 form-control" type="password" id="password" name="password" placeholder="Enter your password">
-             
              <h2 class="sign-in mb-3"><?php echo isset($msg) ? $msg: ''?></h2>
            <button class="btn btn-Login w-100 m-0" type="submit">Login</button>
          </form>

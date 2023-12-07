@@ -2,12 +2,15 @@
 
 namespace App\Controllers;
 use App\Models\Dashboard_model;
+use App\Models\Loan_model;
+
 
 class AdminDashboard extends BaseController
 {
     public function __construct() {
         // parent::__construct();
         $this->dashboard = new Dashboard_model();
+        $this->loan = new Loan_model();
         $this->session = session();
       
         /** add error delimiters * */
@@ -16,287 +19,115 @@ class AdminDashboard extends BaseController
 
     public function index(): string
     {
-        return view('admin/dashboard',['title' => 'Fintech Loans']);
+        $data = array();
+        $IsLoggedIn =session()->get('isLoggedIn'); 
+        if (isset($IsLoggedIn)){
+            $data['login_user_detail'] = session()->get('isLoggedIn');
+            return view('admin/dashboard',['title' => 'Fintech Loans','data'=>$data]);
+        }
+        else{
+            return view('not_loggedin',['title' => 'Fintech Loans']);
+
+        }
     }
 
     public function get_all_loans_opportunity(){
         $result = $this->dashboard->show_dashboard_opportunity();
-        return $result;
+        $totalRecords = 99;
+        $data = $result['msg'];
+        return json_encode([
+            'recordsTotal' => $totalRecords,
+            'recordsFiltered' => $totalRecords,
+            'data' => $data,
+        ]);
     }
 
     public function opportunityDetail(): string
     {
-        return view('admin/opportunityDetail',['title' => 'Fintech Loans']);
+
+        $data = array();
+        $LoanId = $_GET['LoanId'];
+        $opportunity = $this->loan->get_loan_detail_by_id(array("Loan_Id", "Loan_amount", "Opportunity_id", "UserID", "Created_on"),$LoanId);
+        $IsLoggedIn =session()->get('isLoggedIn'); 
+        if (isset($IsLoggedIn)){
+            $data['login_user_detail'] = session()->get('isLoggedIn');
+            return view('admin/opportunityDetail',['title' => 'Fintech Loans','opportunity'=>$opportunity,'data'=>$data]);
+        }
+        else{
+            return view('not_loggedin',['title' => 'Fintech Loans']);
+
+        }
     }
 
-    // public function make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c): array
-    // {
-    //     $csvFilePath = WRITEPATH . "../csv/Loan_".$Loan_Amount.".csv";
-       
-    
-    //     if ($pay_frequency == 3) {
-    //         $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, 2);
-    //     } elseif ($pay_frequency == 2) {
-    //         $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, 1);
-    //     } elseif ($pay_frequency == 1) {
-    //         $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, 4);
-    //     } elseif ($pay_frequency == 4) {
-    //         $max_repayment_amount = $this -> calculateRepayentAmout($Loan_Amount, -1);
-    //     }
-    //             if (file_exists($csvFilePath)) {
-    //         // Load the File helper
-    //         $csvContent = file_get_contents($csvFilePath);
 
-    //         $csvData = str_getcsv($csvContent, "\n"); // Split into lines
+    public function editopportunity()
+    {
+        $data = array();
+        $LoanId = $_GET['LoanId'];
+        $opportunity = $this->loan->get_loan_detail_by_id(array("Loan_Id", "Loan_amount", "Opportunity_id", "UserID", "Created_on"),$LoanId);
+        $IsLoggedIn =session()->get('isLoggedIn'); 
+        if (isset($IsLoggedIn) and $IsLoggedIn->user_type == 99){
+            $data['login_user_detail'] = session()->get('isLoggedIn');
+            return view('admin/editOpportunityDetail',['title' => 'Fintech Loans','opportunity'=>$opportunity,'data'=>$data]);
+        }
+        else{
+            return view('not_loggedin',['title' => 'Fintech Loans']);
 
-    //         $csvArray = [];
-    //         $data = array(); 
-    //         $isFirstRow = true;
-    //         foreach ($csvData as $csvRow) {
-    //             $rowData = str_getcsv($csvRow, ","); // Split each line into an array
+        }
+    }
 
-    //             if ($isFirstRow) {
-    //                 $headers = $rowData;
-    //                 $isFirstRow = false;
-                    
-    //             }  else {
-    //                 $row = array_combine($headers, $rowData);
-    //                 foreach ($row as $key => &$value) {
-    //                     if ($value === "") {
-    //                         $value = 0;
-    //                     }
-    //                     $row[$key] = str_replace(',','',$row[$key]);
-    //                 }
-    //                 $csvArray[] = $row;
-    //             }
-    //         }
-    //         foreach($csvArray as $row){
-    //             $floanAmount =$row['Loan_Amount__c'];
-    //             $fpayFrequency =$row['DP_Primary_income_frequency__c'];
-    //             $ftotalRepayment =$row['Total_Repayment_Amount__c'];
-                
-    //             if($floanAmount == $Loan_Amount && $fpayFrequency == $pay_frequency && $ftotalRepayment >= $total_repayment_amount__c && $ftotalRepayment <=  $max_repayment_amount){
-                  
-    //                 // the filtered data will push inside $data
-    //                 $data[] = $row;
-    //             }
-    //         }
-         
-    //         if (!empty($data)) {
-    //             // Randomly select an index from the $data array
-    //             $randomIndex = array_rand($data);
-            
-    //             // Get the random array
-    //             $randomArray = $data[$randomIndex];
-            
-    //             // Return the random array
-    //             return $randomArray;
-    //         } else {
-                
-    //             // Handle the case when no matching rows were found
-    //             return []; // Or any other appropriate value
-    //         }
-            
-           
-           
-    //     } else {
-    //         return print( 'The CSV file does not exist.');
-    //     }
-    // }
-    // public function applyLoan(): string{
-    //     return view('applyLoan',['title' =>'Apply Loan']);
-    // }
-    // public function calculateRepayentAmout($LoanAmount, $payFrequency): string {
-    //     // I have assumed an average interest rate of 20%
-    //     $multiplicationRatio = 20;
-    
-    //     if ($payFrequency == 3) {
-    //         $multiplicationRatio = 10;
-    //     } elseif ($payFrequency == 2) {
-    //         $multiplicationRatio = 11;
-    //     } elseif ($payFrequency == 1) {
-    //         $multiplicationRatio = 12;
-    //     } elseif ($payFrequency == 4) {
-    //         $multiplicationRatio = 15;
-    //     }
-    
-    //     switch ($LoanAmount) {
-    //         case 500:
-    //             return $LoanAmount + (14 * $multiplicationRatio);
-    //         case 1000:
-    //             return $LoanAmount + (22 * $multiplicationRatio);
-    //         case 1500:
-    //             return $LoanAmount + (36 * $multiplicationRatio);
-    //         case 2000:
-    //             return $LoanAmount + (55 * $multiplicationRatio);
-    //         case 2500:
-    //             return $LoanAmount + (60 * $multiplicationRatio);
-    //         case 3000:
-    //             return $LoanAmount + (64 * $multiplicationRatio);
-    //         case 3500:
-    //             return $LoanAmount + (75 * $multiplicationRatio);
-    //         case 4000:
-    //             return $LoanAmount + (80 * $multiplicationRatio);
-    //         case 4500:
-    //             return $LoanAmount + (85 * $multiplicationRatio);
-    //         case 5000:
-    //             return $LoanAmount + (90 * $multiplicationRatio);
-    //         default:
-    //             return $LoanAmount + (20 * $multiplicationRatio); // Default value
-    //     }
-    // }
-    // public function pay_frequency_convert($pay_frequency):string {
-    //     if ($pay_frequency == 1) {
-    //         return strtoupper("Weekly");
-    //     } elseif ($pay_frequency == 2) {
-    //         return strtoupper("Fortnightly");
-    //     } elseif ($pay_frequency == 3) {
-    //         return strtoupper("Monthly");
-    //     } elseif ($pay_frequency == 4) {
-    //         return strtoupper("Other");
-    //     }
-    // }
-    // public function analyzeLoan(): string{
-    //     try{
-    //     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //         $ReasonforLoan = $_POST['ReasonforLoan'];
-    //         $more_information =$_POST['more_information'];
-    //         $Loan_Amount = $_POST['Loan_Amount'];
-    //         $pay_frequency = (int)$_POST['pay_frequency'];
-    //         // $user_name_initials = $_POST['user_name_initials'];
-    //         $FirstName = $_POST['FirstName'];
-    //         $MiddleName = $_POST['MiddleName'];
-    //         $LastName = $_POST['LastName'];
 
-    //         $DateOfBirth = $_POST['DateOfBirth'];
-    //         $MobileNumber = (string)$_POST['MobileNumber'];
-    //         $userEmail = $_POST['Email'];
-            
-    //         $Password = $_POST['Password'];
-    //         $confPassword = $_POST['confPassword'];
-    //         # Employment Details
-    //         $Employment_Status = $_POST['Employment_Status'];
-    //         $Annual_Gross_Income = (int)$_POST['Annual_Gross_Income'];
-    //         # Expenses Details
-    //         $Total_expenses = $_POST['Total_expenses'];
-    //         # Confirm Your Contact Details
-    //         $user_street_name = $_POST['user_street_name'];
-    //         $user_address_suburb = $_POST['user_address_suburb'];
-    //         $user_address_postcode = $_POST['user_address_postcode'];
-            
-    //         $user_city = $_POST['user_city'];
-    //         $user_state = $_POST['user_state'];
-    //         # Your Employer Information
-    //         $Employer_name = $_POST['Employer_name'];
-    //         # I Confirm
-    //         $IcanConfirm = $_POST['IcanConfirm'];
-
-    //         $an_id = sprintf('%018x', random_int(0, (int)(pow(16, 18) - 1)));
-    //         $Loan_Amount = (int)$Loan_Amount;
-    //         $total_repayment_amount__c = $this -> calculateRepayentAmout($Loan_Amount,$pay_frequency); 
-    //         // print("This is request.form",request.form)
-    //         $extract_Random_record = $this -> make_Random_payload($Loan_Amount,$pay_frequency,$Annual_Gross_Income,$Total_expenses,$total_repayment_amount__c);
-    //         unset($extract_Random_record['id']);
-    //         echo "here ";
-    //         print_r($extract_Random_record);
-    //         // print_r($extract_Random_record);
-    //         $extract_Random_record["Summary_Income__c"]         = $Annual_Gross_Income;
-    //         $extract_Random_record["Summary_Expenses__c"]       = (int)$Total_expenses;
-    //         $extract_Random_record["Loan_Amount__c"]            = (int)$Loan_Amount;
-    //         $extract_Random_record["Total_Repayment_Amount__c"] = $total_repayment_amount__c;
-    //         // echo "<pre>";
-       
-    //         // echo strpos('this_date', 'date');
-    //         foreach ($extract_Random_record as $key => $val) {
-                
-    //             if (strpos($key, 'date') && $val ==0) {
-                    
-    //                 $extract_Random_record[$key] = '';
-
-    //             } elseif (is_float($val) ) {
-    //                 $extract_Random_record[$key] = (int)$val;
-    //             }
-    //         }
-           
-    //         $url = "https://brave-hawk-6yrll5-dev-ed.trailblaze.my.salesforce-sites.com/services/apexrest/Form/Data/";
- 
-            
-    //             $payload = [
-    //             "first_name" => $FirstName,
-    //             "last_name" => $LastName,
-    //             "email" => $userEmail,
-    //             "mobile"=> $MobileNumber,
-    //             "pay_frequency" => $this -> pay_frequency_convert($pay_frequency),
-    //             "loan_reason" => $ReasonforLoan,
-    //             "amount" => $Loan_Amount,
-    //             "opp_fields" => $extract_Random_record
-    //         ];
-    //         $jsonPayload = json_encode($payload,JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE);
-           
+    public function getLoanAnalysis():string
+    {
+        $opportunity_id = $_GET['opportunity_id'];
         
-
-    //         // Initialize cURL session
-    //         $ch = curl_init($url);
-
-    //         // Set cURL options
-    //         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    //         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonPayload);
-    //         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    //         curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    //             'Content-Type: application/json',
-    //         ]);
-
-    //         // Execute cURL session and get the response
-    //         // die;
-    //         $response_from_salesforce_server = json_decode( curl_exec($ch));
-    //         echo "<pre>";
-    //         print_r($response_from_salesforce_server);
-    //         // die;
-    //         if ($response_from_salesforce_server->success) {
-    //             header("Location: /creditsense", true, 302);
-    //             exit; 
-    //         }
-    //                     print_r($_POST);
-    //     }
-    //         return view("someissues");
-    //     }
-    //     catch(Exception $e) {
-    //         return view("someissues");
-    //     }
-    // }
-
-    // function custom_json_encode($data) {
-    //     return json_encode($data, JSON_NUMERIC_CHECK | JSON_UNESCAPED_UNICODE);
-    // }
-    // public function creditSense(): string{
+        $opportunity =  $this->loan->get_opportunity_by_id($opportunity_id,array("Opportunity_Origin__c"));
+        $opportunity->Opportunity_id = "ritik";
+        foreach($opportunity as $key => &$val){
+            if ($key == "Opportunity_id"){
+                $opportunity->id = $val;
+                unset($opportunity->$key);
+            }
+            if($key == "opp_id" || $key == "StageName"){
+                unset($opportunity->$key);
+            }
+        }
         
-    //     return view('creditSense1',['title' => "creditSense"]);
-    // }
-    // public function allbanks(){
-    //     $db = \Config\Database::connect(); // This is optional, but you can use it to get a database instance directly
-    //     $query = $db->query('SELECT bankname FROM Banks');
-    //     $result = $query->getResultArray();
-    //     // echo "<pre>";
-      
-    //     $outputArray = array();
+        // $convertedObject = convertObjectToStrings($opportunity);
 
-    //     foreach ($result as $item) {
-    //         if (isset($item['bankname'])) {
-    //             $outputArray[] = $item['bankname'];
-    //         }
-    //     }
-    //     // print_r($outputArray);
-    //     $this->response->setContentType('application/json');
+        $url = "https://bd8gizd4mg.execute-api.us-east-1.amazonaws.com/prod";
+        $payload = [
+            "body" => $opportunity
+        ];
+        $jsonPayload = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_BIGINT_AS_STRING);
 
-    //     // Send the JSON response
-    //     return $this->response->setJSON(['bank'=>$outputArray]);
-    //     // return $outputArray;
+        // Initialize cURL session
+        $ch = curl_init($url);
+
+        // Set cURL options
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonPayload);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'x-api-key : Dw22gXnwgq3mAg8z5bqA02jJ2fuD9E0r6ulP2iGA'
+        ]);
+
+        // Execute cURL session and get the response
+        $response_from_aws_prod_server = json_decode(curl_exec($ch));
         
+        $vaop = "0062x00000EbrOLAAZ";
+        $response_result = "Red";
+        foreach ($response_from_aws_prod_server as $key => $val) {
+            if(isset($val->ritik)){
+                $response_result =  $val->ritik;
+            }
+        }
+        return json_encode([
+            'status'=>200,
+            'data'=>$response_result,
+            'msg'=>'Successfully fetched the Loan analysis status'
+        ]);
 
-    // }
-
-    // public function loanProcessHolding():string{
-    //     return view("thanks");
-    // }
-    
+    }
 }

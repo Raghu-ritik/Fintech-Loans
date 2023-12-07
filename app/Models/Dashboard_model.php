@@ -31,7 +31,7 @@ class Dashboard_model extends Model{
         $status = 'error';
         $msg = 'No Loans info found!';
         $loan = $this->loan->get_all_loan_detail(array(
-            "Loan_Id", "Loan_amount", "Reason_for_loan","More_info", "Pay_frequency","Total_expenses","Employer_name", "Opportunity_id", "UserID","Created_on")
+            "Loan_Id", "Loan_amount", "Opportunity_id", "UserID","Created_on")
         );
         
         if($this->auth->isAdminLoggedin()){
@@ -41,7 +41,7 @@ class Dashboard_model extends Model{
         }
         else{ 
             $status = 'error';
-            $msg = 'You are not authorized to login this site';
+            $msg = 'You are not authorized to view this site';
             return array('status' => $status, 'msg' => $msg);
             
         }
